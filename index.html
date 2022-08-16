@@ -3,28 +3,40 @@
     <meta charset="UTF-8" />
     <!--  언어 인코딩 방식 기본적으로 UTF-8을 쓰게됨 -->
     <p>안녕하세요.</p>
-    <!-- 주석은 <</!-- --/>> 꼴로 쓴다. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myTitle</title>
     <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      div {
+        color: white;
+      }
       .divc {
+        border: 5px dotted black;
+        padding: 10px;
+        margin: 50px;
         width: 100px;
       }
       #div1 {
         height: 100px;
         background-color: dodgerblue;
+        background-clip: content-box;
       }
       #div2 {
-        height: 10px;
+        border: 5px solid red;
+        background-color: rgba(100, 206, 118, 0.719);
+        height: 100px;
       }
     </style>
     <!-- 클래스는 '.'으로 id는 '#'으로 사용합니다. -->
   </head>
   <!-- tag를 여는 태그 닫는 태그를 묶어서 element라고도 부른다. -->
   <body>
-    <div id="div1" class="divc">11111111111111111111111</div>
-    <div id="div2" class="divc">11111111111111111111111</div>
+    <div id="div1" class="divc">1111111111</div>
+    <div id="div2" class="divc">11111</div>
     <!-- div 의 뜻은 가장 기본적인 element 단순한 '영역을 의미함'-->
   </body>
   <!-- 브라우저에서의 내용물을 body안에 작성한다. -->
