@@ -21,6 +21,19 @@
     lang -> 무슨 언어냐? en 영어, ko 한글 
 -->
   <head>
+    <style>
+      #hello1 {
+        color: red;
+        background-color: yellow;
+      }
+      #hello2 {
+        color: green;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+
     <!-- 
         head : 브라우저에 여라가지 정보들을 전달 
         보통은 페이지상에서 안보임
@@ -34,14 +47,14 @@
         메타데이터, 간단히 말하면 기본 정보를 전달한다.
         charset : 언어가 어떤 포멧이냐? 형식이냐? UTF-8은 유니코드 중에 하나인데 Javascript할때 다시 언급
     -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
     <!--
         http-equiv : 웹 사이트가 어떤 호환성을 가지고 있느냐? Javascript를 어디까지 사용할 수 있냐?
         content : 어떤 정보인지에 대한 내용 -> IE=edge << Internet Explorer의 버전이 edge이다.
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--
-        name : 어떤 설정이냐, viewport라는 이름을 가진 컨텐츠를 쓸 것이다.. << 화면에 대한 내용.
+        name : 어떤 설정이냐, viewport라는 이름을 가진 컨텐츠를 쓸 것이다. << 화면에 대한 내용.
         viewport : 카메라, 어느정도의 너비를 갖는지, 줌(확대)이 어떻게 되어있는지
         width-device-width << 웹페이지의 가로 너비를 브라우저 or 스마트폰의 너비에 맞추겠다. (디바이스에 따라 맞추겠다.)
         initial-scale=1.0 << 기본 확대가 1.0배이다.
@@ -201,5 +214,9 @@
     높이는 설정하지 않으면 자식의 높이를 따라가, 자식이 없으면 높이는 0px 
     자식의 너비가 없고 margin(외부 여백)이 있으면, 부모의 너비에서 외부 여백을 제외한 너비를 갖게됨-->
     <!-- padding : 내부 여백, 내부에 얼마나 빈공간을 넣을 것인지 설정 -->
+
+    <a href="#" ; style="scroll-behavior: smooth">제일 위로</a>
+    <p id="hello1">안녕하세요</p>
+    <p id="hello2">Hello.</p>
   </body>
 </html>
