@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        th {
+            background-color:rgba(0, 255, 255, 0.39);
+        }
+        td {
+            background-color: rgba(128, 128, 128, 0.329);
+        }
+        table {
+            border-collapse:collapse;
+            /* 테이블의 경우 보더가 1로 설정되어있는데 이를 붙인다. */
+        }
+        /* border는 외곽선을 설정한다. 순서는 -> 굵기 선형 색상 */
+    </style>
+  </head>
+  <body>
+    <!--
+      indx.html 이라고 파일을 만드는 이유 : 서버에서 사용하는 규칙이다.
+    -->
+    <h2>근데 표이름을 캡션보다 h2로 더 많이 쓴다고한다.</h2>
+    <table>
+      <!-- 표를 출력하는 부모 태그 -->
+      <caption>
+        테이블 이름
+      </caption>
+      
+      <col style="width: 50px;" />
+      <col style="width: 150px;" />
+      <col style="width: 50px;" />
+      <col style="width: 50px;" />
+      <colgroup span="2" style="width: 30px;"></colgroup>
+      <!-- 
+        column의 줄임말, 열, 세로줄
+        col은 테이블의 영역 스타일을 공통적으로 정의한다.
+        단, 하나의 열씩 
+        column의 스타일을 한번에 여러열을 적용하기 위해 사용하는 것이 colgroup이다.
+        span 속성을 이용해 몇개의 연속된 열을 설저할지 설정한다.
+      -->
+
+      <thead>
+        <!-- table head, 테이블의 제일 위 이름 -->
+        <tr>
+          <!-- tr은 table row, 행이다. -->
+          <th>
+            <!-- 테이블의 헤드의 셀이다. -->
+            번호
+          </th>
+          <th>이름</th>
+          <th>나이</th>
+          <th>성별</th>
+          <th>국적</th>
+          <th>출석</th>
+          <th>마스크 유무</th>
+        </tr>
+        
+      </thead>
+      <tbody>
+        <tr>
+            <!-- table data -->
+            <td>1</td>
+            <td>김정규</td>
+            <td>29</td>
+            <td>남</td>
+            <td>한국</td>
+            <td>O</td>
+            <td rowspan="2">O</td>
+            <!-- 행 합침 -->
+          </tr>
+        </tr>
+        <tr>
+            <!-- table data -->
+            <td>2</td>
+            <td>김땡규</td>
+            <td>29</td>
+            <td>남</td>
+            <td>한국</td>
+            <td>X</td>
+          </tr>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="2">총원</td>
+            <td>2</td>
+            <td colspan="3">출석</td>
+            <td>2</td>
+            <!-- 열 합침 -->
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
