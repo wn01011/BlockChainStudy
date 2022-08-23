@@ -1,0 +1,222 @@
+<!-- 
+    HTML -> HyperText Markup Language
+    웹페이지를 작성하는 문서
+    구조적으로 이루어져있다.
+    // 논리X 짜여진 대로만 입력하면 된다.
+    ctrl + / << 한번에 주석처리
+    
+    Tag, Tag 이름 -> html, head, meta, body, div, ...
+    <***> 여는 태그
+    </***> 닫는 태그
+    여는 태그가 있으면 닫는 태그가 있어야한다.
+    Element << Javascript에서 다시
+    여는 태그와 닫는 태그 사이에 자식 태그들이 있다.
+    태그 사이에 부모 자식 구조가 있다.
+-->
+
+<html lang="en">
+  <!-- 
+    html 태그는 뭐냐, HTML 파일의 시작. 
+    속성 (ex : lang) : Tag에 대한 설정, lang
+    lang -> 무슨 언어냐? en 영어, ko 한글 
+-->
+  <head>
+    <style>
+      #hello1 {
+        color: red;
+        background-color: yellow;
+      }
+      #hello2 {
+        color: green;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+
+    <!-- 
+        head : 브라우저에 여라가지 정보들을 전달 
+        보통은 페이지상에서 안보임
+    -->
+    <!--
+        Tag 중에 바로 닫기, <*** />
+        자식이 없을 때 -> meta, img, input
+    -->
+    <meta charset="UTF-8" />
+    <!--
+        메타데이터, 간단히 말하면 기본 정보를 전달한다.
+        charset : 언어가 어떤 포멧이냐? 형식이냐? UTF-8은 유니코드 중에 하나인데 Javascript할때 다시 언급
+    -->
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
+    <!--
+        http-equiv : 웹 사이트가 어떤 호환성을 가지고 있느냐? Javascript를 어디까지 사용할 수 있냐?
+        content : 어떤 정보인지에 대한 내용 -> IE=edge << Internet Explorer의 버전이 edge이다.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+        name : 어떤 설정이냐, viewport라는 이름을 가진 컨텐츠를 쓸 것이다. << 화면에 대한 내용.
+        viewport : 카메라, 어느정도의 너비를 갖는지, 줌(확대)이 어떻게 되어있는지
+        width-device-width << 웹페이지의 가로 너비를 브라우저 or 스마트폰의 너비에 맞추겠다. (디바이스에 따라 맞추겠다.)
+        initial-scale=1.0 << 기본 확대가 1.0배이다.
+        maximum-sclae, minimum-scale << 최대 최소
+    -->
+    <title>22_08_16_htmlStudy</title>
+    <!--
+        title : 웹페이지 이름, 사이트 이름.
+    -->
+    <!--
+        link, script, style
+    -->
+  </head>
+  <body>
+    <!--
+        영역, div
+    -->
+    <div>
+      <p>
+        단락, paragraph 단어의 약자, 블록화 되어있다. 내용이 너비를 넘으면
+        알아서 줄을 바군다.<br />br은 줄바꿈
+      </p>
+      <span>
+        span은 p랑 거의 유사함 인라인 속성을 갖고 있다. 블록화와 대비됩니다.
+      </span>
+      <pre>
+        pre는 p나 span이나 같다.
+        결정적 차이가 있는데
+        얘는 쓴대로 나옴.
+      </pre>
+      <h1>대제목</h1>
+      <h2>제목</h2>
+      <h3>제목</h3>
+      <h4>제목</h4>
+      <h5>제목</h5>
+      <h6>제목</h6>
+      <p>h1,h2, ... , h6까지 제목을 설정할 수 있다.</p>
+    </div>
+    <div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOo5ogBAIio-0w-Gczb9R8yI29VF2Zun0Sz8Bs30F5EHsQ6DRPZWWU4ZFjnhnlDU73sY&usqp=CAU"
+        alt="카카오테스트"
+      />
+      <br />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTgDjx-8jqcphecrizDWZzr7dEdrTToB-nn18qgUJk6Ir6DpNbGioIbeWMnHh5CBZ-Hhc&usqp=CAU"
+        alt="카카오테스트"
+      />
+      <!--
+        image, src = source, 이미지의 주소, 파일명 입력가능.
+        alt = 이미지를 정상적으로 받지 못했을때 뜨는 대안 이미지.
+        이미지 포멧 : jpg, bmp, png
+        base64 << 요건 텍스트로 이미지를 볼 수 있다.
+      -->
+      <p>
+        <strong>strong 굵은 글씨 강조, 긴급한 내용, 알람?</strong>
+        채팅을 쳤는데, 공지로 올렸어 : 긴급 사항, 알람을 strong으로<br />
+        <b>b 그냥 굵은 글씨, 나중에 css에서 알 수 잇다.</b>
+        <br />
+        <del>
+          del 삭제한 내용, 게시판에서 글을 삭제했어 그 글을 관리자는 확인
+          가능해야함.
+        </del>
+        <br />
+        <ins>
+          insert 입력한 내용, 늘어난 내용, 게시판 글을 적음, 신규 작성글
+          수정했으면 알 수있게 사용하는 태그
+        </ins>
+        <br />
+        sub : 2<sub>2</sub>아래첨자 ex) 영어<sub>English</sub>
+        <br />
+        sup : 2의 제곱 2<sup>2</sup>
+        <br />
+        <i>i 둘 다 기울었어, 이름이나 제목 같은 것에 씀, 인용구</i>
+        <br />
+        <em>em 둘 다 기울었어, 강조 = strong</em>
+      </p>
+    </div>
+    <br />
+    <div>
+      style : 속성, 그 태그의 크기, 외곽선, 위치, 배경 등을 설정한다. 기초적인
+      방법 웹페이지 처음은 html 파일로 주고 받았어. 그런데 html 파일이 너무
+      커져서 보기가 어렵다. CSS(Cascading Style Sheets) 파일로 꾸미는 기능이
+      분화가 되어 나오게 되었다.
+      <div>
+        <p>
+          너비나 높이나 숫자를 이용한 수치들에 대한 단위 : px, %, em, rem, vw,
+          vh;
+        </p>
+        <p>px : 픽셀 한칸.</p>
+        <p>% : 부모를 기준으로한 비율, 100% = 부모의 너비랑 같음.</p>
+        <p>em : 글씨 크기를 기준으로 한다. 부모의 글씨 크기</p>
+        <p>rem : 글씨 크기를 기준으로 한다.html 의 글씨 크기. 많이 사용한다.</p>
+        <div>
+          ex) 글씨 크기가 16px, 그럼 1em, 1rem은 16px 글씨 크기가 32px, 1rem =
+          1em 32px, 0.5rem = 16px
+        </div>
+        <p>
+          vw, vh : viewport, 브라우저의 크기나 스마트폰의 크기를 기주으로 %,
+          100vw = 화면의 너비, 100vh 화면의 높이
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div style="min-width: 100px"></div>
+        <p>
+          width : 영역의 너비 max-width : 영역의 최대 너비 min-width : 영역의
+          최소 너비 %, vw, vh은 기준이 있고 그 기준의 비율로 너비를 설정함.
+        </p>
+        <p>
+          어떤 내용을 넣었는데, 최소 100px은 있어야 제대로 정보 전달이 될 때,
+          min-width를 쓴다. <br />
+          어떤 내용을 넣었는데, 너무 크면 안된다면 max-width를 쓴다.
+        </p>
+      </div>
+      <div style="height: 100px">
+        height : 높이 <br />
+        max-heigth : 영역의 최대 높이<br />
+        min-height : 영역의 최소 높이<br />
+        이미지 조절할 때 쓰임. 이미지에 대한 style을 할 때 다시 다뤄보자.
+      </div>
+
+      <div
+        style="
+          width: 100px;
+          height: 100px;
+          background-color: rgb(255, 155, 68);
+          padding: 10px;
+          border-style: solid;
+          border-color: rgb(63, 155, 68);
+          margin: 20px;
+        "
+      >
+        <div
+          style="width: 80%; height: 80%; background-color: rgb(63, 155, 68)"
+        >
+          <div
+            style="
+              height: 80%;
+              width: 130%;
+              background-color: black;
+              margin-left: 50px;
+              margin-top: 20px;
+              border-style: solid;
+              border-color: red;
+              border-width: 5px;
+              box-sizing: border-box;
+            "
+          ></div>
+        </div>
+        <div style="box-sizing: border-box"></div>
+      </div>
+    </div>
+    <!-- margin : 외부여백
+    자식의 너비는 설정하지 않으면 무조건 부모를 따라가, 즉 부모의 너비 -> 자식의 너비
+    높이는 설정하지 않으면 자식의 높이를 따라가, 자식이 없으면 높이는 0px 
+    자식의 너비가 없고 margin(외부 여백)이 있으면, 부모의 너비에서 외부 여백을 제외한 너비를 갖게됨-->
+    <!-- padding : 내부 여백, 내부에 얼마나 빈공간을 넣을 것인지 설정 -->
+
+    <a href="#" ; style="scroll-behavior: smooth">제일 위로</a>
+    <p id="hello1">안녕하세요</p>
+    <p id="hello2">Hello.</p>
+  </body>
+</html>

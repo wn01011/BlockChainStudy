@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+.Head {
+  height: 20%;
+  background-color: greenyellow;
+}
+.Head div {
+  height: 100%;
+}
+.Head #Head_1 {
+  width: 10%;
+  float: left;
+  background-color: black;
+}
+.Head #Head_2 {
+  width: 90%;
+  float: right;
+  background-color: gray;
+}
+.Body {
+  height: 60%;
+  background-color: blueviolet;
+}
+.Body div {
+  height: 100%;
+}
+.Body #Body_1 {
+  width: 60%;
+  float: left;
+  background-color: brown;
+}
+.Body #Body_2 {
+  width: 40%;
+  height: 20%;
+  float: right;
+  background-color: dodgerblue;
+}
+.Body #Body_3 {
+  width: 40%;
+  height: 80%;
+  float: right;
+  background-color: darkseagreen;
+}
+.Tail {
+  height: 20%;
+  background-color: rgb(245, 245, 181);
+}
+.Tail div {
+  padding: 1%;
+}
+.Tail #Tail_1 {
+  height: 50%;
+  background-color: aqua;
+}
+.Tail #Tail_2 {
+  height: 50%;
+  background-color: tomato;
+}
