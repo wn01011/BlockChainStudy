@@ -1,0 +1,33 @@
+div {
+  border: 1px solid black;
+  width: 500px;
+}
+img {
+  display: block;
+}
+.transform-translate img {
+  /* transform 은  모양의 수정을 위해 사용한다.*/
+  /* 
+  transform: translate(x, y);
+  transform: translateX(x);
+  transform: translateY(y);
+  transform: scale(x, y);
+  transform: scaleX(x);
+  transform: scaleY(y);
+  */
+  /* transition: transform 3s linear, border 1s ease-in-out,
+    border-radius 1s ease-in-out; */
+  transform-origin: 80% 50%;
+  /* origin은 기준이 되는 축이다. */
+  animation: myAnim 3s infinite linear alternate;
+}
+.transform-translate img:hover {
+  transform: rotate(360deg);
+  border-radius: 50%;
+}
+@keyframes myAnim {
+  to {
+    transform: translate(100px, 10px);
+    transform: skew(0deg, 180deg);
+  }
+}

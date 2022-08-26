@@ -1,0 +1,118 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mySurvay</title>
+    <link rel="stylesheet" href="/survay/style/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="title border">
+        <h1>기초설문지</h1>
+      </div>
+      <div class="initialData border">
+        <div class="nameData border">
+          <div class="nameContent">
+            <label for="name">이름 :</label> &nbsp;&nbsp;<input
+              type="text"
+              id="name"
+            />
+          </div>
+        </div>
+        <div class="ageData border">
+          <div class="ageContent">
+            <div>
+              <label for="age">나이 : </label>&nbsp;&nbsp;
+              <input type="number" id="age" />
+            </div>
+            <div>
+              <label for="place">거주지 :</label>&nbsp;&nbsp;
+              <select id="place">
+                <option value="1">서울</option>
+                <option value="2">경기</option>
+                <option value="3">부산</option>
+                <option value="4">창원</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="idpwData border">
+          <div class="idpwContent">
+            <label for="id">id :</label>
+            <input type="text" id="id" /><br /><label for="pw">pw :</label>
+            <input type="text" id="pw" />
+          </div>
+        </div>
+      </div>
+      <div class="mainData border">
+        <div class="major border">
+          <div class="question1">
+            전공자이십니까?
+            <input type="checkbox" />
+          </div>
+          <div class="question1_1">
+            <label for="textArea"
+              >1.&nbsp;전공자가 맞다면 주로 어떤 공부를 하셨나요?</label
+            >
+          </div>
+          <div class="answer1">
+            <textarea
+              name="majorStudy"
+              id="textArea"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="question1_2">
+            <label for="question1_2"
+              >2.&nbsp;비전공자라면 어떤 전공을 나오셨나요?</label
+            >
+          </div>
+          <div class="answer2">
+            <input type="text" id="question1_2" />
+          </div>
+        </div>
+        <div class="hobby border">
+          <div>다음중 해당되는 취미를 선택하세요.</div>
+          <div class="hobbyCheckBoxContainer border">
+            <div class="hobbyContainer">
+              <div class="hobby1">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+              <div class="hobby2">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+              <div class="hobby3">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+            </div>
+            <div class="hobbyContainer">
+              <div class="hobby1">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+              <div class="hobby2">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+              <div class="hobby3">
+                <div>asdfasfd</div>
+                <input type="checkbox" />
+              </div>
+            </div>
+          </div>
+          <div class="email">
+            <span><label for="email">email : &nbsp;</label></span>
+            <input type="email" id="email" placeholder="&nbsp;abcd@gmail.com" />
+          </div>
+
+          <button class="submitBtn border">제출</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

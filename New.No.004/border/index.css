@@ -1,0 +1,26 @@
+.border {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  /* 
+    외곽선의 모서리를 깎는다.
+    반지름을 입력한다.
+  */
+
+  border: none;
+  border: 1px solid black;
+  border: 10px dashed orangered;
+  border: 10px double orange;
+  border: 10px dotted violet;
+  /* 
+    외곽선 표현 방식들
+  */
+
+  border-width: 10px;
+  border-color: brown;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

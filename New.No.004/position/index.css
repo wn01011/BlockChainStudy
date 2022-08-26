@@ -1,0 +1,28 @@
+.position1 {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  position: relative;
+  left: 100px;
+  /* 원래 있어야하는 흐름상 위치를 기준으로 한다. */
+}
+.position2 {
+  position: absolute;
+  position: relative;
+  /* position: fixed; */
+  /* 브라우저기준 고정 */
+  /* position: sticky; */
+  /* 부모밖으로 나가지 못하는 최소 거리 한계치를 지정함. */
+  /* width: 100px; */
+  height: 100px;
+  background-color: blue;
+  /* 
+    이전 영역과 같은 위치를 기준으로 한다.
+    부모의 좌측상단을 기준으로 절대적 위치(흐름을 맞추지 않는다.)
+    부모의 position이 없으면 할아버지의 영역을 확인한다.
+  */
+  top: 20%;
+  /* right: 100px; */
+  bottom: 100px;
+  /* left: 100px; */
+}

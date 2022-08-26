@@ -1,0 +1,193 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      <!-- 
+        사용자가 입력하는 데이터를 서버에 보내는 태그
+        자세하게는 Javascript 지금은 모양과 입력만 한다.
+        POST, GET ..., 서버 들어가서 할것이고, 지금은 아~
+        그런게 있다~ 정도만 배운다.
+        table, ol, ul 처럼 form 부모로써 쓴다.
+        action 속성은 어디다가 보낼지 서버의 주소를 입력한다.
+        # 권장사항? W3C에서 주소가 없을때 넣도록 권장한다.
+
+        method 속성은 데이터를 어떤 방식으로 보낼것인지 설정한다.
+        GET, POST가 있다.
+        GET은 주소에 입력데이터가 나온다.
+        target << a와 같다.
+     -->
+
+      <fieldset>
+        <!-- 
+            쓰고 싶으면 써라
+            fieldset 태그는 form안에 영역을 구분해준다.
+            div 써도 됨.
+            style이 있어서 기본적인 디자인이 나온다.
+         -->
+        <legend>필드셋의 제목</legend>
+
+        <input type="text" placeholder="미입력시 출력되는 텍스트" autofocus />
+        <!-- autofocus속성은 페이지에 진입했을때 바로 선택 시켜준다. -->
+
+        <input type="text" id="text" name="ersar" />
+        <!--
+        input 태그는 이름 그대로 사용자가 데이터를 입력할 수 있는 영역
+        type이 정말 많다.
+        text값은 이름 그대로 글을 적는 것이다.
+        name속성은 서버에 보낼때 어떤 이름을 갖고 있는지, 
+        데이터에 대한 이름을 같이 보낸다.
+        id 속성은 label 태그와 연결하기 위해 사용한다.
+        -->
+        <label for="text">아무거나 입력해 보세요.</label>
+        <!-- 
+            label 태그는 입력 값에 대한 제목을 사용자에게 보여준다.
+            예시 : 성명, 이름, 번호, 메일 등등
+            for 속성은 input 태그와 연결하기 위해 사용한다.
+            클릭 시 연결된 input에 입력할 수 있도록 해준다.(focus)
+         -->
+        <label for="pw"
+          >비밀번호<input type="password" name="pw" id="pw"
+        /></label>
+        <!-- 
+            type 속성이 password 값을 가지는 input태그는 타입 그대로 비밀번호를 입력할 수 있게 해준다.
+            입력된 데이터를 알아서 가려준다.
+        -->
+        <label for="tel"
+          >전화번호 : <input type="tel" name="tel" id="tel"
+        /></label>
+        <!-- 필터링 안돼서 Javascript로 필터링 필요 -->
+
+        <div>
+          <label for="number">나이 : </label>
+          <input type="number" id="number" name="age" />
+        </div>
+        <div>
+          <label for="url">주소를 입력해주세요</label>
+          <input type="url" id="url" name="url" />
+        </div>
+        <div>
+          <label for="search">검색어를 입력해주세요</label>
+          <input type="search" id="search" />
+        </div>
+        <div>
+          <label for="email">이메일을 입력해주세요</label>
+          <input type="email" id="email" />
+        </div>
+
+        <button type="submit" style="width: 80px; height: 40px">
+          <!-- 클릭할 수 있는 객체 -->
+          <!--
+                a는 다른 웹페이지로 이동할 때 사용한다.
+                다른 경우에는 버튼을 사용한다.
+                기본적으로 작동하는게 없어서 javascript를 넣어야하지만
+                a처럼 무조건 작동하는게 없어서 오히려 편함.
+            -->
+          보내기
+          <!-- 
+            type은 어떤 작동을 할 것인지 기본 작동을 설정함
+            submit은 form데이터를 보낼 때 사용
+           -->
+        </button>
+
+        <div>
+          <input type="file" />
+        </div>
+        <div>
+          <input
+            style="width: 10vh"
+            type="image"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAnFBMVEX/3AAAAB//4gD/4AD/5AD/3gD/4QAABh8ACB//5gAABx8AAB792gARFB8ACx99bRhcUhnKrwxzZRfewAkeHh0HDh+kjxLuzgXStgtZTxrDqQ4oJh331QOqlBGBcRa9pA9pXRiMehU8NxwbHB4TFh5QRxpJQhu4nxCOfBU1MRzy0QavmBGXgxR4aRgxLRxAOhskIx3jxAhsXxhNRRpm5ptnAAAD50lEQVR4nO3Y2XajOhAFUJekAmSDZwbbGI/xnMHJ///bLQk7nYdOnnqgc89+sTFZLA4llURaLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4f2Ctvzz9p+7jt+HT9Px5RG3y+A/ezG+herQ2n53UxYxO/3oVVRXtPk+4ICq/QcK3756w/fBVws4/n9D07gl/JHn/pvcUfoOE4cQnDE7KfXBgLGurfC5J2K0Tqrrfsg6UUR96r6w1uuGPQBL2XcJgQHO5VS7P/Q7R+OCDBedO6r+YYeHyay6yqncp1C2U1qPFfnAyjc5oHn1CnafJJuaW6pPTCZ/kwCVMXEKTEQ10S0/H/iz164FsBkd/+Fh+uWn4y8wwXJoW83PSzeU+9XQ5zctTRuFKihbMQxc7KChdusdQ0PNqPpeH0HNlN2dKx71Dn7ovTZ6s5tUltI8RDQJ3zEozs626T66GWTiOmU9JsvZV46tSQWBXqVtD+ErJJDbK3vI3lSR8NVINyj7epB74hbBOqHd1fVu3Lss5UaFlBqdJPUnnIV2bW0SzDId2ROGjvf3AWiklv/iEl/ZLy/ZCKoL730uBdWtDC0nYSSv/VLhMoyz46dWbwPTDXrxNJveer8r9papWw8QlVJf2LJD6nm/1ZWXy0eg6GktCqWS4rytrnru95g5TMwmrnLb3hGZed0sak+usl+gpps3R1ieZLxt/ckNTWSh8f62vEQ2bndAuqF2PUj0lWl3LspRPl/AQPRlZ9Vf1EFYTWRmy8znzCQs/G/01+u3HBid8CytlL7dOYx6ioZWpJuv/LeFR29VtmMouNRrZIFDxVqrHP2pod1GTR+nOrXxmkrpuwjwjP7ekl3ZcwlW01hw8JDTSbpPe6bticpm4hCVF83qBaY27B/V3Y3zBrkO5O45n21RWBEk4l/Vf2yy6J5Tc5Xi7kRdh89rx002XqauePSYP9dAu3qvZRPbYvsjz17J8r5lNPz3mgS5eadN1Cavo2e1lRpTsApYxO2Ml7bSfuBnomuzCSon1Oplxc9dD+0J+hCl52a2Uy0Kzrnzd1gnD3W1/Fg5d90zW2UXazYvvMfqtS4fRdbFOm1xCaSbVwt+eXQ1lRqlil3Zeele7HvuEnWffQmyPLnJ4rvfd+dIn5LjeplO4aG6fEer+uqcDN9K0KU/aMCt3xHFZ76k5LlwIle/n+9zIO5P//xSrolouX7OyuRuan/o4pfh+wO9vwG5rwPcdkFbGmKC5cxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfrn/ADCaOc2HgoxfAAAAAElFTkSuQmCC"
+          />
+          <!-- 
+            버튼을 이미지로 출력할 때 사용합니다.
+            image를 넣어서 버튼을 대체한다.
+           -->
+        </div>
+        <button>
+          <img
+            style="width: 10vh"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAnFBMVEX/3AAAAB//4gD/4AD/5AD/3gD/4QAABh8ACB//5gAABx8AAB792gARFB8ACx99bRhcUhnKrwxzZRfewAkeHh0HDh+kjxLuzgXStgtZTxrDqQ4oJh331QOqlBGBcRa9pA9pXRiMehU8NxwbHB4TFh5QRxpJQhu4nxCOfBU1MRzy0QavmBGXgxR4aRgxLRxAOhskIx3jxAhsXxhNRRpm5ptnAAAD50lEQVR4nO3Y2XajOhAFUJekAmSDZwbbGI/xnMHJ///bLQk7nYdOnnqgc89+sTFZLA4llURaLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4f2Ctvzz9p+7jt+HT9Px5RG3y+A/ezG+herQ2n53UxYxO/3oVVRXtPk+4ICq/QcK3756w/fBVws4/n9D07gl/JHn/pvcUfoOE4cQnDE7KfXBgLGurfC5J2K0Tqrrfsg6UUR96r6w1uuGPQBL2XcJgQHO5VS7P/Q7R+OCDBedO6r+YYeHyay6yqncp1C2U1qPFfnAyjc5oHn1CnafJJuaW6pPTCZ/kwCVMXEKTEQ10S0/H/iz164FsBkd/+Fh+uWn4y8wwXJoW83PSzeU+9XQ5zctTRuFKihbMQxc7KChdusdQ0PNqPpeH0HNlN2dKx71Dn7ovTZ6s5tUltI8RDQJ3zEozs626T66GWTiOmU9JsvZV46tSQWBXqVtD+ErJJDbK3vI3lSR8NVINyj7epB74hbBOqHd1fVu3Lss5UaFlBqdJPUnnIV2bW0SzDId2ROGjvf3AWiklv/iEl/ZLy/ZCKoL730uBdWtDC0nYSSv/VLhMoyz46dWbwPTDXrxNJveer8r9papWw8QlVJf2LJD6nm/1ZWXy0eg6GktCqWS4rytrnru95g5TMwmrnLb3hGZed0sak+usl+gpps3R1ieZLxt/ckNTWSh8f62vEQ2bndAuqF2PUj0lWl3LspRPl/AQPRlZ9Vf1EFYTWRmy8znzCQs/G/01+u3HBid8CytlL7dOYx6ioZWpJuv/LeFR29VtmMouNRrZIFDxVqrHP2pod1GTR+nOrXxmkrpuwjwjP7ekl3ZcwlW01hw8JDTSbpPe6bticpm4hCVF83qBaY27B/V3Y3zBrkO5O45n21RWBEk4l/Vf2yy6J5Tc5Xi7kRdh89rx002XqauePSYP9dAu3qvZRPbYvsjz17J8r5lNPz3mgS5eadN1Cavo2e1lRpTsApYxO2Ml7bSfuBnomuzCSon1Oplxc9dD+0J+hCl52a2Uy0Kzrnzd1gnD3W1/Fg5d90zW2UXazYvvMfqtS4fRdbFOm1xCaSbVwt+eXQ1lRqlil3Zeele7HvuEnWffQmyPLnJ4rvfd+dIn5LjeplO4aG6fEer+uqcDN9K0KU/aMCt3xHFZ76k5LlwIle/n+9zIO5P//xSrolouX7OyuRuan/o4pfh+wO9vwG5rwPcdkFbGmKC5cxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfrn/ADCaOc2HgoxfAAAAAElFTkSuQmCC"
+            alt=""
+          />
+        </button>
+        <div style="cursor: pointer">보내기</div>
+        <!-- 
+            이런식으로 만들어도 된다.
+         -->
+
+        <div>
+          <input type="date" id="birthday" />
+          <label for="birthday">생일은</label>
+        </div>
+
+        <div>
+          <input type="color" />
+        </div>
+        <textarea cols="30" rows="10"></textarea>
+        <!-- textarea는 여러줄 입력이 가능한 input text이다. -->
+        <button type="reset">입력값 초기화</button>
+
+        <div></div>
+
+        <select style="display: block">
+          <option value="seoul">서울</option>
+          <option value="2">경기도</option>
+          <option value="c">인천</option>
+          <option value="@">강원도</option>
+          <!-- 
+            option은 선택할 메뉴들, value가 중요함
+            value는 서버로 실제 보내는 정보다. 
+            option은 무조건 select의 자식으로 들어가야한다.
+          -->
+        </select>
+
+        <div>
+          <label for="checkbox">정보 제공에 동의하시겠습니까</label>
+          <input type="checkbox" id="checkbox" checked />
+          <!-- 
+              checked 속성을 설정하면 체크된 상태로 출력된다.
+           -->
+        </div>
+        <div>
+          좋아하는 과일은?
+          <input type="radio" id="radio1" name="radio" />
+          <label for="radio1">사과</label>
+          <input type="radio" id="radio2" name="radio" />
+          <label for="radio2">오렌지</label>
+          <input type="radio" id="radio3" name="radio" />
+          <label for="radio3">바나나</label>
+          <input type="radio" id="radio4" name="radio1" />
+          <label for="radio4">중복되는 과일</label>
+          <!-- 
+            하나만 선택하는 여러개의 체크박스
+            name을 사용해서 중복을 체크한다.
+           -->
+        </div>
+      </fieldset>
+      <div>
+        <input type="text" id="text1" />
+        <label for="text1">테스트</label>
+      </div>
+    </form>
+    <div>
+      <label for="text1">테스트1</label>
+    </div>
+    <!-- 
+        label의 for속성과 input의 id 속성이 같은 값을 가지면 위치와 상관없이
+        label 클릭 시 input에 입력할 수 잇도록 커서가 이동된다.
+     -->
+
+    <!-- 
+        서버에 정보를 보낼때 
+        id : id_1234 
+        pw : pw_1234
+        이런 데이터를 보낸다고 한다면
+        id, pw는 name이고 사용자가 입력하는 우측은 value이다.
+      -->
+  </body>
+</html>

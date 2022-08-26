@@ -1,0 +1,17 @@
+.flex {
+  display: flex;
+  border: 1px solid black;
+  height: 800px;
+  flex-wrap: wrap;
+  /* 넘어가는 아이템에 대해 처리하는 방식 */
+  justify-content: space-evenly;
+  /* flex 주축 방향 정렬방식이다. */
+  align-items: stretch;
+  /* 보조축 방향 정렬방식이다. */
+}
+.flex-item {
+  min-width: 100px;
+  min-height: 100px;
+  background-color: aquamarine;
+  border: 1px solid orangered;
+}

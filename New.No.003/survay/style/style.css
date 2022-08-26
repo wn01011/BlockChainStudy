@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10%;
+  width: 80%;
+  height: 120%;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+div {
+  display: flex;
+}
+.border {
+  border: 2px solid white;
+}
+.title {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  height: 20%;
+  border: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: hidden;
+  border-radius: 30px;
+}
+.initialData {
+  margin: 0;
+  width: 100%;
+  height: 20%;
+}
+.nameData {
+  width: 30%;
+  padding-left: 5%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.nameContent input {
+  width: 40%;
+  height: 100%;
+}
+.ageData {
+  width: 20%;
+  height: 100%;
+  padding-left: 3%;
+  align-items: center;
+  justify-content: center;
+}
+.ageContent {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ageContent input {
+  height: 100%;
+}
+.idpwContent {
+  justify-content: space-around;
+}
+.idpwData {
+  width: 50%;
+  height: 100%;
+  padding-left: 5%;
+}
+.idpwData input {
+  height: 20%;
+}
+.mainData {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.major {
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 60%;
+}
+.major div {
+  height: 20%;
+}
+.hobby {
+  width: 100%;
+  height: 40%;
+  flex-direction: column;
+  padding-top: 1%;
+  padding-left: 10%;
+  justify-content: space-around;
+  position: relative;
+}
+.hobby .email {
+  align-items: center;
+  height: 20%;
+}
+.hobby .email input {
+  height: 100%;
+}
+
+.hobbyCheckBoxContainer {
+  width: 50%;
+  height: 40%;
+  flex-direction: row;
+  justify-content: left;
+}
+.hobbyCheckBoxContainer + .email input {
+  height: 60%;
+  width: 40%;
+}
+.hobbyCheckBoxContainer + .email input::placeholder {
+  font-size: 1rem;
+}
+.hobbyContainer {
+  margin-left: 10%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.hobbyContainer div {
+  justify-content: center;
+  align-items: center;
+}
+.hobbyContainer div input {
+  width: 100%;
+  height: 100%;
+  margin-left: 10%;
+}
+input {
+  color: white;
+  width: 20%;
+  height: 40%;
+  position: relative;
+}
+.question1 {
+  padding-left: 5%;
+  padding-top: 1%;
+  height: 10%;
+  align-items: center;
+}
+.question1 input {
+  height: 20%;
+}
+.major .question1_1,
+.major .question1_2 {
+  margin-left: 5%;
+  height: 5%;
+}
+.answer1,
+.answer2 {
+  flex-direction: row;
+  margin-left: 5%;
+}
+.answer1 textarea {
+  width: 80%;
+}
+.answer2 input {
+  width: 40%;
+}
+.idpwContent {
+  flex-direction: column;
+}
+.idpwContent input {
+  width: 100%;
+}
+.submitBtn {
+  position: absolute;
+  right: calc(20px);
+  bottom: 5%;
+  width: 10%;
+  height: 20%;
+}
+.submitBtn:hover {
+  background-color: white;
+  color: black;
+}

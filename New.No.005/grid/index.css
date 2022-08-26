@@ -1,0 +1,97 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.grid {
+  margin-top: 50px;
+  margin-left: 50px;
+  justify-content: center;
+  /* align-items: center; */
+  position: relative;
+
+  display: grid;
+  background: gray;
+  /* grid 박스를 만든다 부모역할 */
+  grid-template-rows: repeat(3, 200px);
+  /* minmax 함수는 최소최대 결정. 그 사이에서 알아서 조절 */
+  /* row방향으론 minmax를 지정해봤자 스크롤이 먼저 늘어나서 최대크기 ? 로 설정 되기때문에
+  의미 없음 */
+  /* 
+  grid 박스의 세로높이를 결정한다.
+  row의 수만큼 입력한다.
+  */
+  grid-template-columns: repeat(5, minmax(100px, 300px));
+
+  /* grid-auto-flow: column; */
+  /* grid의 아이템의 진행 방향을 설정한다. */
+
+  row-gap: 10px;
+  column-gap: 10px;
+  margin-right: 5px;
+  min-width: 500px;
+
+  grid-template-areas:
+    "sidebar header header header header"
+    "sidebar . content content ."
+    "footer footer footer footer footer";
+  /* 
+        grid-template-areas는 grid박스 설정한다.
+        하나의 row는 ""로 설정하고, 여러 row일 경우 줄바꿈으로 처리한다.
+        .을 설정할 경우 빈칸이 된다.
+        무조건 사각형이어야한다.
+        item의 스타일에 grid-area와 매칭한다.
+    */
+
+  /* justify-items: stretch;
+  justify-items: start;
+  justify-items: center;
+  justify-items: end; */
+  /* justify는 가로 정렬 */
+  /* align-items: stretch;
+  align-items: start;
+  align-items: center;
+  align-items: end; */
+  /* align은 세로정렬 */
+}
+.grid-item {
+  display: flex;
+  background-color: #f2f500;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar {
+  grid-area: sidebar;
+  background-color: aqua;
+}
+.header {
+  grid-area: header;
+  background-color: tomato;
+}
+.content {
+  grid-area: content;
+  background-color: blue;
+}
+.footer {
+  position: relative;
+  top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  grid-area: footer;
+  background-color: blueviolet;
+}
+
+.sidebar > div {
+  height: 20px;
+  color: tomato;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.sidebar > div:last-child {
+  margin-bottom: 0;
+}
