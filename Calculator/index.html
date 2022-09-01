@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <article class="calculator">
+      <section class="view">
+        <p>1/x, x<sup>2</sup>, &radic;, +-, 소수점은 구현 생각 없음.</p>
+        <input
+          id="myInput"
+          type="number"
+          onchange=""
+          value=""
+          name="inputValue"
+        />
+      </section>
+      <section class="buttons">
+        <div class="row1">
+          <button class="remain" onclick="Operator(5)">%</button
+          ><button class="CE" onclick="C()">CE</button
+          ><button class="C" onclick="C()">C</button
+          ><button class="delete" onclick="Delete()">
+            <i class="fa-solid fa-delete-left fa-2x"></i>
+          </button>
+        </div>
+        <div class="row2">
+          <button class="x-1" onclick="MakeStr(`%`)">1/x</button
+          ><button class="square">x<sup>2</sup></button
+          ><button class="root">2&radic;x</button
+          ><button class="divide" onclick="Operator(4)">&divide;</button>
+        </div>
+        <div class="row3">
+          <button class="num7" onclick="MakeNum(7)">7</button
+          ><button class="num8" onclick="MakeNum(8)">8</button
+          ><button class="num9" onclick="MakeNum(9)">9</button
+          ><button class="mult" onclick="Operator(3)">X</button>
+        </div>
+        <div class="row4">
+          <button class="num4" onclick="MakeNum(4)">4</button
+          ><button class="num5" onclick="MakeNum(5)">5</button
+          ><button class="num6" onclick="MakeNum(6)">6</button
+          ><button class="minus" onclick="Operator(2)">-</button>
+        </div>
+        <div class="row5">
+          <button class="num1" onclick="MakeNum(1)">1</button
+          ><button class="num2" onclick="MakeNum(2)">2</button
+          ><button class="num3" onclick="MakeNum(3)">3</button
+          ><button class="plus" onclick="Operator(1)">+</button>
+        </div>
+        <div class="row6">
+          <button class="sign">±</button
+          ><button class="num0" onclick="MakeNum(0)">0</button
+          ><button class="dot">.</button
+          ><button class="equal" onclick="Equal()">=</button>
+        </div>
+      </section>
+    </article>
+    <script
+      src="https://kit.fontawesome.com/0c7c810305.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

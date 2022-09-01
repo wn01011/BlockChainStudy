@@ -35,6 +35,7 @@ do {
               `당신의 요리를 맛본 마을 사람들이 다시는 당신이 만든 요리를 먹지 않습니다.\n당신의 재능에 한탄한 요리사도 고개를 젓습니다...\n\n수중에 남은 돈은 0원입니다.\n재기의 가능성이 없다느낀 당신은 세상을 한탄하며 마을 뒤 절벽으로 갑니다..`
             );
             alert(`사 망`);
+            toggleImg("leftImg", "Assets/Images/YouDie.png");
             break;
           } else {
             alert(`당신의 요리를 맛본 마을 사람들이 맛에 중독됩니다.`);
@@ -45,6 +46,7 @@ do {
             );
             alert("질투에 눈이 먼 스승에 의해 독살 됩니다.");
             alert(`사 망`);
+            toggleImg("leftImg", "Assets/Images/poison.jpg");
             break;
           }
         } else {
@@ -80,6 +82,7 @@ do {
                 `선한 당신은 마음의 죄책감을 이기지 못합니다.\n\n잠깐이라도 정신이 있을때 "${knife_name}"의 검날 끝으로 몸을 던집니다.`
               );
               alert(`사 망`);
+              toggleImg("leftImg", "Assets/Images/YouDie.png");
               break;
             } else {
               alert(
@@ -93,6 +96,7 @@ do {
                 `몇 날 며칠을 싸운 결과. 대부분의 고수들을 헤치웠지만 검신이라불리는 사내에게 끝내 목을 베입니다.`
               );
               alert(`사 망`);
+              toggleImg("leftImg", "Assets/Images/head.jpg");
               break;
             }
           } else {
@@ -110,6 +114,7 @@ do {
               `식당으로 들어가 소면을 시키며 10년은 더 늙어보이는 주인장에게 물어봅니다.`
             );
             alert(`저 요리를 배우고 싶습니다.\n\n\n엔딩 - 요리사의 길`);
+            toggleImg("leftImg", "Assets/Images/food_king.jpg");
             break;
           }
         }
@@ -131,6 +136,7 @@ do {
           break;
         } else {
           alert(`사 망\n\n엔딩 - 슬라임보다 약하다니...`);
+          toggleImg("leftImg", "Assets/Images/YouDie.png");
           break;
         }
       } else {
@@ -145,7 +151,7 @@ do {
     alert(
       `뒷산에 어슬렁 거린지 얼마 지나지 않았을때\n\n\n야생의 슬리임이 나타났다!!!`
     );
-    Battle("뒷산의 슬라임..?", true);
+    Battle("슬라임", true);
     alert(
       `돈을 위해 가차없이 기절시켜 끌고온 슬라임.\n\n어쩐지 너무 귀엽게만 느껴지는데...?`
     );
@@ -202,6 +208,7 @@ do {
         );
       } else {
         alert(`다시는 녀석들을 무시하지 말라구 ???`);
+        toggleImg("leftImg", "Assets/Images/YouDie.png");
         break;
       }
       alert(`부수러 갈 준비가 됐습니다.`);
@@ -218,6 +225,7 @@ do {
           `운이 좋지 않았습니다.\n롱스톤의 꼬리공격이 슬라임의 핵에 닿았습니다.`
         );
         alert(`작별의 시간입니다.\n\n엔딩 - 무너진 야망`);
+        toggleImg("leftImg", "Assets/Images/YouDie.png");
         break;
       }
     } else {
@@ -240,6 +248,7 @@ do {
         alert(`호 하고 불었더니 슬라임의 눈이 커집니다.!`);
         alert(`눈이 커진 슬라임이 숨을 쉬지 않습니다!!!`);
         alert(`슬라임은 가버렸습니다...\n\n엔딩 - 슬라임 사망`);
+        toggleImg("leftImg", "Assets/Images/slime_die.jpg");
       } else if (heal == "2") {
         alert(
           `마을 뒷동산의 제왕이었던 슬라임은 육식이었습니다.\n지금껏 채소만 먹인 것이 원인 이었습니다!`
@@ -248,9 +257,11 @@ do {
         alert(
           `최초로 몬스터 치유사의 길을 개척하는 역사적 인물이 되었습니다.\n그의 이름은 세월이 지나도 울려퍼질 것입니다.\n\n엔딩 - 최초의 몬스터 치유사`
         );
+        toggleImg("leftImg", "Assets/Images/monster_qure.jpg");
       } else {
         alert(`기도로는 아무것도 해결되지 않습니다...`);
         alert(`슬라임은 가버렸습니다...\n\n엔딩 - 슬라임 사망`);
+        toggleImg("leftImg", "Assets/Images/slime_die.jpg");
       }
     }
     break;

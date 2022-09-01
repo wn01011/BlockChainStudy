@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hw</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <p id="result">
+      <p id="first">firstNum : 0</p><p id="second">secondNum : 0</p><p id="sum">Sum : 0</p><p id="mult">Multifly : 0</p>
+    </p>
+    <section id="plus">
+      <button onclick="Calculator(true, true)" id="first"><p>++firstNum</p></button>
+      <!-- firstNum이 1씩 증가 -->
+      <button onclick="Calculator(false, true)" id="second"><p>++secondNum</p></button>
+      <!-- secondNum이 1씩증가 -->
+    </section>
+    <section id="minus">
+      <button onclick="Calculator(true, false)" id="first"><p>--firstNum</p></button>
+      <!-- firstNum이 1씩 증가 -->
+      <button onclick="Calculator(false, false)" id="second"><p>--secondNum</p></button>
+      <!-- secondNum이 1씩증가 -->
+    </section>
+    <!-- firstNum, secondNum 합친 결과가 콘솔창에 등록된다. -->
+  </body>
+</html>
