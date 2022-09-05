@@ -9,6 +9,7 @@ let isMult = false;
 let isDivide = false;
 let isRemain = false;
 
+/** 좌항과 우항의 숫자를 문자열로써 쌓는함수 */
 function MakeNum(_num) {
   if (!isRight) {
     leftNum += String(_num);
@@ -19,7 +20,11 @@ function MakeNum(_num) {
   }
   console.log(`leftNum = ${leftNum}\nrightNum = ${rightNum}`);
 }
+
 // Add = 1 Minus = 2 Mult = 3 Divide = 4 Remain = 5
+/** 어떤 연산자를 눌렀을 때 해당 연산자에 따른 bool값을 true로 만들고
+ *  나머지 연산자의 bool 값을 false로 바꾸는 함수
+ */
 function Operator(_num) {
   isAdd = false;
   isMinus = false;
@@ -54,58 +59,42 @@ function Delete() {
     leftNum = String(leftNum);
     if (leftNum.length == 0) return;
     leftNum = String(leftNum.slice(0, leftNum.length - 1));
-    console.log(`leftNum = ${leftNum}\nrightNum = ${rightNum}`);
     document.getElementById("myInput").value = leftNum;
   } else {
     if (rightNum.length == 0) return;
     rightNum = String(rightNum.slice(0, rightNum.length - 1));
-    console.log(`leftNum = ${leftNum}\nrightNum = ${rightNum}`);
     document.getElementById("myInput").value = rightNum;
   }
+  console.log(`leftNum = ${leftNum}\nrightNum = ${rightNum}`);
 }
 function C() {
   leftNum = "";
   rightNum = "";
   Operator(0);
   console.log(`leftNum = ${leftNum}\nrightNum = ${rightNum}`);
-  document.getElementById("myInput").value = "";
-  document.getElementById("myInput").value = "";
+  document.getElementById("myInput").value = "0";
+  document.getElementById("myInput").value = "0";
 }
+
 function Equal() {
   isRight = false;
   if (isAdd) {
     isAdd = false;
     leftNum = parseInt(leftNum) + parseInt(rightNum);
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
   } else if (isMinus) {
     isMinus = false;
     leftNum = parseInt(leftNum) - parseInt(rightNum);
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
   } else if (isMult) {
     isMult = false;
     leftNum = parseInt(leftNum) * parseInt(rightNum);
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
   } else if (isDivide) {
     isDivide = false;
     leftNum = parseInt(leftNum) / parseInt(rightNum);
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
   } else if (isRemain) {
     isRemain = false;
     leftNum = parseInt(leftNum) % parseInt(rightNum);
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
-  } else {
-    rightNum = "";
-    document.getElementById("myInput").value = leftNum;
-    return console.log(leftNum);
   }
+  rightNum = "";
+  document.getElementById("myInput").value = leftNum;
+  return console.log(leftNum);
 }

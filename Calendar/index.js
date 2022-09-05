@@ -11,6 +11,7 @@ let curYear = date.getFullYear();
 let curDate = date.getDate();
 let curDay = date.getDay();
 let startDay = new Date(curYear, curMonth, 0);
+let dayStart = new Date(curYear, curMonth, 1).getDay();
 let lastMonthDate = startDay.getDate();
 let lastMonthDay = startDay.getDay();
 let endDay = new Date(curYear, curMonth + 1, 0);
@@ -18,7 +19,6 @@ let nextDate = endDay.getDate();
 let nextDay = endDay.getDay();
 
 MakeCalendar();
-
 function MakeCalendar() {
   console.log(`${curYear}. ${curMonth + 1}`);
   console.log(`일     월    화    수    목    금    토`);
@@ -38,8 +38,7 @@ function MakeCalendar() {
       firstStr += `${i}t   `;
     } else if (
       // 토욜 일욜 계산 후 r을 붙임
-      new Date(curYear, curMonth, i).getDay() == 0 ||
-      new Date(curYear, curMonth, i).getDay() == 6
+      GetRedDay(i)
     ) {
       firstStr += `${i}r    `;
     } else {
@@ -66,10 +65,7 @@ function MakeStr(_num) {
   ) {
     if (i == curDate) {
       tempStr += `${i}t   `;
-    } else if (
-      new Date(curYear, curMonth, i).getDay() == 0 ||
-      new Date(curYear, curMonth, i).getDay() == 6
-    ) {
+    } else if (GetRedDay(i)) {
       tempStr += `${i}r    `;
     } else {
       tempStr += `${i}    `;
@@ -86,4 +82,13 @@ function MakeStr(_num) {
   }
   console.log(tempStr);
   return isEnd;
+}
+
+function GetRedDay(_num) {
+  if (
+    ((_num - 1) % 7) - (6 - dayStart) == 0 ||
+    ((_num - 1) % 7) - (6 - dayStart) == 1
+  )
+    return true;
+  else return false;
 }
