@@ -1,6 +1,5 @@
 let count = 0;
 let hanoiCount = 0;
-let hanoiNumn = 0;
 let from = 1;
 let other = 2;
 let to = 3;
@@ -43,17 +42,17 @@ function MakeRing(_num) {
   Array.from(stickList).forEach(
     (x) => (x.style.paddingBottom = `100 + ${_num * 40} px`)
   );
-  // let r;
-  // let g;
-  // let b;
+  let r;
+  let g;
+  let b;
   for (let i = 0; i < _num; ++i) {
     let div = document.createElement("div");
     div.classList.add("ring");
     div.style.width = 360 - i * 10 + "%";
-    // r = Math.random() * 255;
-    // g = Math.random() * 255;
-    // b = Math.random() * 255;
-    // div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    r = Math.random() * 255;
+    g = Math.random() * 255;
+    b = Math.random() * 255;
+    div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     stick1.appendChild(div);
     let curRing = new Object(myRing());
     curRing.num = i;

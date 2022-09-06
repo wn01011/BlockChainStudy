@@ -40,11 +40,11 @@ function MakeRing(_num) {
   }
 }
 
-function RealHanoi(_num, _from, _other, _to) {
+function* RealHanoi(_num, _from, _other, _to) {
   if (_num === 0) return;
   RealHanoi(_num - 1, _from, _to, _other);
   ++hanoiCount;
-  HanoiAnim(_num, _from, _other, _to);
+  yield HanoiAnim(_num, _from, _other, _to);
   //myMove(_num, _from, _other, _to);
   RealHanoi(_num - 1, _other, _from, _to);
 }
@@ -127,4 +127,5 @@ function myMove(_num, _from, _other, _destination) {
       curRing.style.bottom = (650 - pos) / 5 - 100 + "%";
     }
   }
+  RealHanoi.next();
 }
