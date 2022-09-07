@@ -33,7 +33,8 @@ function TSNGame(_num) {
     let curNumStr = String(i);
     let tempStr = "";
     for (let j = 0; j < curNumStr.length; ++j) {
-      if (curNumStr[j] == "3") tempStr += "짝";
+      if (curNumStr[j] == "3" || curNumStr[j] == "6" || curNumStr[j] == "9")
+        tempStr += "짝";
     }
     if (tempStr != "") console.log(tempStr);
     else console.log(i);
