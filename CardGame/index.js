@@ -1,6 +1,6 @@
 let mainGrid = document.getElementById("mainGrid");
 alert(
-  "행과 열 순서대로 입력하는데 서로 곱한 값이 26이 넘지 않게\n행과 열을 입력해 주세요"
+  "행과 열 순서대로 입력하는데 서로 곱한 값이 104가 넘지 않게\n행과 열을 입력해 주세요\n넘게 입력하면 강제로 10x10이됨"
 );
 let row = parseInt(prompt("행 입력"));
 let column = parseInt(prompt("열 입력"));
@@ -20,10 +20,12 @@ if (row * column > 104) {
   column = 10;
 }
 
-function Card(_img, _type, _num) {
-  this.img = _img;
-  this.type = _type;
-  this.num = _num;
+class Card {
+  constructor(_img, _type, _num) {
+    this.img = _img;
+    this.type = _type;
+    this.num = _num;
+  }
 }
 
 SetGrid(row, column);
@@ -65,6 +67,7 @@ function SetCardNum(_row, _column) {
   SetCard();
 }
 
+/** 받은 배열 섞기 */
 function shuffleArray(array) {
   let temp;
   let ranNum = 0;
@@ -84,6 +87,7 @@ function DuplicateCard() {
   }
 }
 
+/** 카드들에 클릭 이벤트 추가 */
 function SetCard() {
   let gridItems = document.getElementsByClassName("gridItem");
 
@@ -94,9 +98,12 @@ function SetCard() {
   }
 }
 
+/** 카드 클릭이벤트 정의 */
 function ClickEvent(x, i) {
+  x.target.style.setProperty(`transform`, `rotateY(360deg)`);
   if (clickedAry.length >= 2) return;
   x.target.style.setProperty(`content`, `${cardAry[i].img}`);
+
   if (i != sameCardChecker && clickedAry.length < 2) {
     clickedAry.push(cardAry[i]);
     sameCardChecker = i;
@@ -104,6 +111,7 @@ function ClickEvent(x, i) {
   if (MatchCard()) return;
 }
 
+/** 두 카드가 같은지 처리 같으면 true, 다르면 false */
 function MatchCard() {
   let items = document.getElementsByClassName("gridItem");
   let indexes = [];
@@ -148,10 +156,14 @@ function MatchCard() {
         items[i].style.setProperty(`pointer-events`, `none`);
       }
     }
+    for (let i = 0; i < leftCards.length; ++i) {
+      leftCards[i].style.setProperty(`transform`, `rotateY(360deg)`);
+    }
     setTimeout(() => {
       for (let i = 0; i < leftCards.length; ++i) {
         leftCards[i].style.setProperty(`pointer-events`, `all`);
         leftCards[i].style.setProperty(`content`, `${cardBackImg}`);
+        leftCards[i].style.setProperty(`transform`, `rotateY(0deg)`);
       }
       clickedAry = [];
     }, 1000);
@@ -174,6 +186,7 @@ function MatchCard() {
       for (let i = 0; i < leftCards.length; ++i) {
         leftCards[i].style.setProperty(`pointer-events`, `all`);
         leftCards[i].style.setProperty(`content`, `${cardBackImg}`);
+        leftCards[i].style.setProperty(`transform`, `rotateY(0deg)`);
       }
       clickedAry = [];
     }, 1000);
@@ -182,26 +195,27 @@ function MatchCard() {
   return false;
 }
 
+/** 클리어 후 font color를 바꿔줌 */
+
+let b = 50 + parseInt(Math.random() * 150);
+
 function ClearFontColor() {
   let curFont = document.getElementById("clear");
   curFont.style.setProperty(`display`, `block`);
 
   setInterval(frame, 10);
-  let r = 50 + parseInt(Math.random() * 150);
-  let g = 50 + parseInt(Math.random() * 150);
-  let b = 50 + parseInt(Math.random() * 150);
   let tick = 0;
   function frame() {
     tick += 1;
     if (tick >= 255) {
-      tick %= 255;
+      tick = 0;
     } else {
-      curFont.style.color =
-        ((r + tick) % 255, (g - tick) % 255, (b + tick) % 255);
+      curFont.style.color = (255, 140, (b + tick) % 255);
     }
   }
-  curFont.style.color = (r, g, b);
 }
+
+/** 카드 옵젝 생성함수 생성 후 해당 카드 반환 */
 function MakeCard(_num) {
   let curCard = new Card();
   curCard.num = _num[0];
