@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+li button {
+  width: 20px;
+  height: 20px;
+}
+#myList {
+  display: flex;
+  column-gap: 5px;
+  width: 100%;
+}
+#myList section {
+  width: 100%;
+  background-color: lightcoral;
+}
+#myList section legend {
+  background-color: lightblue;
+}
+fieldset {
+  border: 1px solid black;
+  padding: 10px;
+}
+li > label {
+  padding-left: 10px;
+  color: white;
+  font-size: 0.8rem;
+}
+li {
+  padding: 10px 0px;
+}
+
+.checkBox1,
+.checkBox2,
+.checkBox3 {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+/* Hide Default checkBox */
+.checkBox1 input,
+.checkBox2 input,
+.checkBox3 input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a background color */
+.checkBox1:hover input ~ .checkmark,
+.checkBox2:hover input ~ .checkmark,
+.checkBox3:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkBox1 input:checked + label > .checkmark,
+.checkBox2 input:checked + label > .checkmark,
+.checkBox3 input:checked + label > .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator */
+.checkmark:after {
+  content: "";
+  position: relative;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkBox1 input:checked + label > .checkmark:after,
+.checkBox2 input:checked + label > .checkmark:after,
+.checkBox3 input:checked + label > .checkmark:after {
+  display: block;
+}
+
+.checkBox1 .checkmark:after,
+.checkBox2 .checkmark:after,
+.checkBox3 .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.tail {
+  background-color: lightgreen;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.tail input {
+  width: 20px;
+  height: 20px;
+}
+
+#inputText,
+#deleteText {
+  margin: 50px;
+  width: 30%;
+  height: 40px;
+}
+#fin {
+  color: blue;
+  padding: 0 50px;
+}
+.checkBox1 .option,
+.checkBox2 .option,
+.checkBox3 .option {
+  border: 1px black solid;
+  border-radius: 5px;
+  opacity: 0.7;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  background-color: lightcyan;
+}
+
+#menu {
+  display: none;
+  content: "";
+  padding: auto;
+  margin: auto;
+  width: 400px;
+  height: 100px;
+  background-color: lightcoral;
+}

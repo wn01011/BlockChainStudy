@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="#" method="get">
+      <fieldset id="myList">
+        <section id="todo">
+          <legend>할 일</legend>
+          <ul id="todoList"></ul>
+          <div class="tail">
+            <p>Add</p>
+            <input type="button" id="todoAdd" value="+"></input>
+            <p>Remove</p>
+            <input type="button" id="todoRemove" value="-"></input>
+          </div>
+        </section>
+        <section id="proceed">
+          <legend>진행중</legend>
+          <ul id="proceedList"></ul>
+        </section>
+        <section id="done">
+          <legend>종료</legend>
+          <ul id="doneList"></ul>
+        </section>
+      </fieldset>
+      <input
+        type="text"
+        id="inputText"
+        value=""
+        placeholder="추가할 할 일 입력 후 Add"
+      />
+      <input
+        type="text"
+        id="deleteText"
+        value=""
+        placeholder="지우고 싶은 Id 입력"
+      />
+      <p id="fin">현재 완료 : 0</p>
+      <section id="menu" value="asdf">
+        
+      </section>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>
