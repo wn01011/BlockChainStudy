@@ -19,16 +19,12 @@ class listElem {
 
 const root = document.getElementById("root");
 const body = document.body;
-// document.getElementsByTagName("body")[0].style = `
-// box-sizeing : borderbox;
-// padding:0;
-// margin:0;
-// `;
 
 root.style = STYLES.FLEXBOX + STYLES.WIDTH;
 root.remove();
 document.getElementsByTagName("title")[0].innerText = "Title";
 const header = document.createElement("header");
+body.appendChild(header);
 header.style = `
 margin:auto;
 margin-top : 40px;
@@ -41,7 +37,6 @@ background-color:gray;
 width : 80%;
 height: 20%;
 `;
-body.appendChild(header);
 
 const title = document.createElement("h1");
 title.innerText = "ToDo.";
@@ -76,12 +71,25 @@ width : 40px;
 height : 40px;
 background-color:skyblue;
 border : none;
+display:flex;
+justify-content : center;
+align-items : center;
 `;
 let textValue;
 
+const assignIcon = document.createElement("div");
+assignBtn.appendChild(assignIcon);
+assignIcon.style = `
+width : 10px;
+height : 20px;
+border : 3px double black;
+border-top:hidden;
+border-left:hidden;
+transform:rotate(45deg);
+`;
+
 const listBox = document.createElement("section");
 body.appendChild(listBox);
-
 listBox.style = `
 margin:auto;
 margin-top : 20px;
@@ -119,6 +127,7 @@ function AppendList(id, text) {
   font-size:2rem;
   width : 40px;
   background-color:red;
+  border:none;
   `;
   listArray.push(new listElem({ id: count, text: text, elem: curList }));
   reviseBtn.onclick = () => {
@@ -159,6 +168,7 @@ function CreateList(id, text) {
   curListText.textContent = `${id}\u00a0\u00a0\u00a0\ ${text}`;
   return curList;
 }
+
 function ReviseList(id) {
   if (inputText.value == "") return;
   let idx = listArray.findIndex((item) => item.id == id);
@@ -169,6 +179,7 @@ function ReviseList(id) {
   )[0].textContent = `${listArray[idx].id}\u00a0\u00a0\u00a0\ ${listArray[idx].text}`;
   inputText.value = "";
 }
+
 function RemoveList(id) {
   let idx = listArray.findIndex((item) => item.id == id);
 

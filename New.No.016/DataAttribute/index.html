@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataAttribute</title>
+  </head>
+  <body>
+    <div
+      id="data-set"
+      data-count="1"
+      style="height: 100px; background-color: lightblue"
+    ></div>
+    <script>
+      const curDataset = document.getElementById("data-set");
+      curDataset.onclick = () => {
+        // 속성으로 data-**** 을 설정하면 Javascript에서 dataset 이라는 프로퍼티 객체에
+        // ****이라는 프로퍼티로 저장된다.
+        curDataset.dataset.count++;
+        console.log(curDataset.dataset.count);
+      };
+      console.log(new Date(Date.now()));
+    </script>
+  </body>
+</html>
