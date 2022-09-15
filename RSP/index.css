@@ -24,6 +24,10 @@ main {
   font-size: 4rem;
 }
 
+#coin span {
+  background-color: transparent;
+}
+
 #roulette {
   background-color: #cc3636;
   width: 100%;
@@ -78,124 +82,7 @@ main {
   background-color: black;
   color: red;
   filter: brightness(100);
-}
-#numbers li {
-  position: absolute;
-  overflow: hidden;
-  transform-origin: 0% 100%;
-  top: 0;
-  right: 0;
-  list-style: none;
-  width: 50%;
-  height: 50%;
-  background-color: transparent;
-}
-.text {
-  position: absolute;
-  left: -100%;
-  width: 200%;
-  height: 200%;
-  text-align: center;
-  transform: skewY(66deg) rotate(12deg);
-  padding-top: 5px;
-}
-#numbers li:first-child {
-  transform: rotate(0deg) skewY(-66deg);
-}
-#numbers li:nth-child(2) {
-  transform: rotate(24deg) skewY(-66deg);
-}
-#numbers li:nth-child(3) {
-  transform: rotate(48deg) skewY(-66deg);
-}
-#numbers li:nth-child(4) {
-  transform: rotate(72deg) skewY(-66deg);
-}
-#numbers li:nth-child(5) {
-  transform: rotate(96deg) skewY(-66deg);
-}
-#numbers li:nth-child(6) {
-  transform: rotate(120deg) skewY(-66deg);
-}
-#numbers li:nth-child(7) {
-  transform: rotate(144deg) skewY(-66deg);
-}
-#numbers li:nth-child(8) {
-  transform: rotate(168deg) skewY(-66deg);
-}
-#numbers li:nth-child(9) {
-  transform: rotate(192deg) skewY(-66deg);
-}
-#numbers li:nth-child(10) {
-  transform: rotate(216deg) skewY(-66deg);
-}
-#numbers li:nth-child(11) {
-  transform: rotate(240deg) skewY(-66deg);
-}
-#numbers li:nth-child(12) {
-  transform: rotate(264deg) skewY(-66deg);
-}
-#numbers li:nth-child(13) {
-  transform: rotate(288deg) skewY(-66deg);
-}
-#numbers li:nth-child(14) {
-  transform: rotate(312deg) skewY(-66deg);
-}
-#numbers li:nth-child(15) {
-  transform: rotate(336deg) skewY(-66deg);
-}
-li:first-child .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(2) .text {
-  background: maroon;
-}
-li:nth-child(3) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(4) .text {
-  background: maroon;
-}
-li:nth-child(5) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(6) .text {
-  background: maroon;
-}
-li:nth-child(7) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(8) .text {
-  background: maroon;
-}
-li:nth-child(9) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(10) .text {
-  background: maroon;
-}
-li:nth-child(11) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(12) .text {
-  background: maroon;
-}
-li:nth-child(13) .text {
-  background: whitesmoke;
-  color: maroon;
-}
-li:nth-child(14) .text {
-  background: maroon;
-}
-li:nth-child(15) .text {
-  background: lightskyblue;
-  color: maroon;
+  z-index: 10;
 }
 
 #centerLine {
@@ -258,4 +145,38 @@ li:nth-child(15) .text {
 i {
   margin-left: 5px;
   background-color: transparent;
+}
+
+.twinkle {
+  animation: twinkleAnim infinite 0.4s;
+}
+@keyframes twinkleAnim {
+  from {
+    background-color: #cc3636;
+  }
+  60% {
+    background-color: #cc3636;
+  }
+  to {
+    background-color: #f57328;
+  }
+}
+
+.highLight {
+  filter: brightness(120%);
+  animation: highLightAnim infinite 0.5s;
+}
+@keyframes highLightAnim {
+  from {
+    background-color: yellow;
+  }
+  60% {
+    background-color: #cc3636;
+  }
+  to {
+    background-color: #f57328;
+  }
+}
+.select {
+  background-color: yellow;
 }
