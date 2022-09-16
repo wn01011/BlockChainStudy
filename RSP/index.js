@@ -13,14 +13,17 @@ const image = numbers.children[0];
 const rsp = document.getElementsByClassName("rsp");
 const rock = rsp[0];
 rock.onclick = () => {
+  if (coin.textContent <= 0) return;
   PicktheWinner(0);
 };
 const scissors = rsp[1];
 scissors.onclick = () => {
+  if (coin.textContent <= 0) return;
   PicktheWinner(1);
 };
 const paper = rsp[2];
 paper.onclick = () => {
+  if (coin.textContent <= 0) return;
   PicktheWinner(2);
 };
 const insertCoin = rsp[3];
@@ -28,9 +31,14 @@ insertCoin.onclick = () => {
   coin.textContent = parseInt(coin.textContent) + 100;
 };
 
+window.onresize = (e) => {
+  let width = window.innerWidth;
+  console.log(width);
+};
+
 let numbersAry = [];
 let imageRollingId = 0;
-const COUNT = 22;
+const COUNT = 16;
 SetNumber(COUNT);
 
 ImageRolling();
@@ -101,24 +109,27 @@ function SetHighLight(elem, delay) {
 }
 
 function RspOnclick(bull) {
-  if (!bull) {
+  if (bull == false) {
     rock.onclick = (e) => {
-      e.preventDefault;
+      e.preventDefault();
     };
     scissors.onclick = (e) => {
-      e.preventDefault;
+      e.preventDefault();
     };
     paper.onclick = (e) => {
-      e.preventDefault;
+      e.preventDefault();
     };
   } else {
     rock.onclick = () => {
+      if (coin.textContent <= 0) return;
       PicktheWinner(0);
     };
     scissors.onclick = () => {
+      if (coin.textContent <= 0) return;
       PicktheWinner(1);
     };
     paper.onclick = () => {
+      if (coin.textContent <= 0) return;
       PicktheWinner(2);
     };
   }
@@ -141,11 +152,11 @@ function SetImage(num) {
       break;
   }
 }
-function ImageRolling() {
+function ImageRolling(speed = 1) {
   let count = 0;
   imageRollingId = setInterval(() => {
     SetImage(count++);
-  }, 1000);
+  }, 1000 / speed);
 }
 
 function HighlightNumbers(num) {
@@ -158,7 +169,7 @@ function HighlightNumbers(num) {
     }
     SetTwinkle(numbersAry[count++ % COUNT].children[0], interval);
   }, interval);
-  return interval * num;
+  return [interval * num, (num % COUNT) + 1];
 }
 
 function PicktheWinner(rspId) {
@@ -171,36 +182,59 @@ function PicktheWinner(rspId) {
     Math.abs(curDiff) == 1 ? (result = "lose") : (result = "win");
   }
   clearInterval(imageRollingId);
-  SetImage(ranComId);
   RspOnclick(false);
-  switch (result) {
-    case "win":
-      console.log("win");
-      let waitTime = 0;
-      let tempTime;
-      setTimeout(() => {
-        SetHighLight(win1, 4000);
-      }, (waitTime += 100));
+  coin.textContent = parseInt(coin.textContent) - 100;
 
-      setTimeout(() => SetHighLight(win2, 4000), (waitTime += 100));
-      let winningNum = Math.floor(Math.random() * COUNT);
-      setTimeout(() => {
-        tempTime = HighlightNumbers(COUNT * 4 + winningNum);
-      }, (waitTime += 4000));
-      setTimeout(() => {
-        RspOnclick(true);
-        ImageRolling();
-      }, waitTime + 4000 + tempTime);
-      break;
-    case "lose":
-      RspOnclick(true);
-      console.log("lose");
-      break;
-    case "draw":
-      RspOnclick(true);
-      console.log("draw");
-      break;
-    default:
-      break;
-  }
+  setTimeout(() => {
+    ImageRolling(10);
+
+    setTimeout(() => {
+      SetImage(ranComId);
+      clearInterval(imageRollingId);
+
+      switch (result) {
+        case "win":
+          console.log("win");
+          let tempTime = 0;
+          setTimeout(() => {
+            SetHighLight(win1, 4000);
+            setTimeout(() => {
+              SetHighLight(win2, 4000);
+              let winningNum = Math.floor(Math.random() * COUNT);
+              setTimeout(() => {
+                let tempnumbers = HighlightNumbers(COUNT * 4 + winningNum);
+                tempTime = tempnumbers[0];
+                setTimeout(() => {
+                  ImageRolling();
+                  RspOnclick(true);
+                  coin.textContent =
+                    parseInt(coin.textContent) + tempnumbers[1] * 100;
+                }, tempTime);
+              }, 4000);
+            }, 100);
+          }, 0);
+
+          break;
+        case "lose":
+          console.log("lose");
+          SetTwinkle(lose, 2000);
+          setTimeout(() => {
+            ImageRolling();
+            RspOnclick(true);
+          }, 2000);
+          break;
+        case "draw":
+          console.log("draw");
+          SetTwinkle(draw, 2000);
+          setTimeout(() => {
+            ImageRolling();
+            RspOnclick(true);
+            coin.textContent = parseInt(coin.textContent) + 100;
+          }, 2000);
+          break;
+        default:
+          break;
+      }
+    }, 4000);
+  }, 0);
 }

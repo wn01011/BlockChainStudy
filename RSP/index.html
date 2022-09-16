@@ -10,48 +10,50 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <main>
-      <header id="coin">
-        <i class="fa-brands fa-bitcoin"></i>&nbsp;<span id="coinText"
-          >1000</span
-        >
-      </header>
-      <section id="roulette">
-        <div id="win">
-          <div>이겼다</div>
-          <div>이겼다</div>
-        </div>
-        <div id="centerLine">
-          <div id="centerLeft"></div>
-          <div id="centerRight"></div>
-          <ul id="numbers">
+  <body class="aspect-ratio-box">
+    <article class="aspect-ratio-box__in">
+      <main>
+        <header id="coin">
+          <i class="fa-brands fa-bitcoin"></i>&nbsp;<span id="coinText"
+            >1000</span
+          >
+        </header>
+        <section id="roulette">
+          <div id="win">
+            <div>이겼다</div>
+            <div>이겼다</div>
+          </div>
+          <div id="centerLine">
+            <div id="centerLeft"></div>
+            <div id="centerRight"></div>
+            <ul id="numbers">
+              <img src="./Assets/Images/rock.png" alt="" />
+            </ul>
+          </div>
+          <div id="lose">
+            <div>졌다</div>
+            <div>비겼다</div>
+          </div>
+        </section>
+        <footer id="select">
+          <div class="rsp">
             <img src="./Assets/Images/rock.png" alt="" />
-          </ul>
-        </div>
-        <div id="lose">
-          <div>졌다</div>
-          <div>비겼다</div>
-        </div>
-      </section>
-      <footer id="select">
-        <div class="rsp">
-          <img src="./Assets/Images/rock.png" alt="" />
-          <div>묵</div>
-        </div>
-        <div class="rsp">
-          <img src="./Assets/Images/scissors.png" alt="" />
-          <div>찌</div>
-        </div>
-        <div class="rsp">
-          <img src="./Assets/Images/paper.png" alt="" />
-          <div>빠</div>
-        </div>
-        <div class="rsp">
-          <img src="./Assets/Images/insertCoin.png" alt="" />
-        </div>
-      </footer>
-    </main>
-    <script src="./index.js"></script>
+            <div>묵</div>
+          </div>
+          <div class="rsp">
+            <img src="./Assets/Images/scissors.png" alt="" />
+            <div>찌</div>
+          </div>
+          <div class="rsp">
+            <img src="./Assets/Images/paper.png" alt="" />
+            <div>빠</div>
+          </div>
+          <div class="rsp">
+            <img src="./Assets/Images/insertCoin.png" alt="" />
+          </div>
+        </footer>
+      </main>
+      <script src="./index.js"></script>
+    </article>
   </body>
 </html>

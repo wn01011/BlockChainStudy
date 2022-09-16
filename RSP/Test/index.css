@@ -1,46 +1,15 @@
-.circ {
-  height: 300px;
-  width: 300px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
+.demoWrapper {
+  aspect-ratio: 1/2;
 }
-.sect {
-  height: 0px;
-  width: 0px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-right: 150px solid red;
-  border-top: 150px solid transparent;
-  transform-origin: bottom left;
+
+.qwer {
+  width: 100%;
+  background: gold; /** <-- For the demo **/
 }
-.sect:nth-child(2) {
-  transform: rotate(45deg);
-  border-right: 150px solid blue;
-}
-.sect:nth-child(3) {
-  transform: rotate(90deg);
-  border-right: 150px solid green;
-}
-.sect:nth-child(4) {
-  transform: rotate(135deg);
-  border-right: 150px solid red;
-}
-.sect:nth-child(5) {
-  transform: rotate(180deg);
-  border-right: 150px solid blue;
-}
-.sect:nth-child(6) {
-  transform: rotate(225deg);
-  border-right: 150px solid green;
-}
-.sect:nth-child(7) {
-  transform: rotate(270deg);
-  border-right: 150px solid blue;
-}
-.sect:nth-child(8) {
-  transform: rotate(315deg);
-  border-right: 150px solid green;
+
+.asdf {
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  background-color: aqua;
 }
