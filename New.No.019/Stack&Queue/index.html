@@ -1,0 +1,133 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 클래스를 사용해서 배열 생성
+      // - 순차적 데이터, 즉 get(index)를 사용해 배열의 []와 같이 가져올 수 있다.
+      // - push(), pop() 을 이용해서 데이터를 넣을 수 있다.
+      // - indexOf()를 사용해서 데이터의 위치를 찾는다.
+      // 내일 풀이 해줄거고, 내일은 과제가 없다.
+      // 큐(queue) push, shift
+      // 큐는 보통 사용자 입력에 대해 관리한다.
+      // 힙(heap)
+      class Stack {
+        constructor(length) {
+          this.ary = {};
+          this.length = length;
+          for (let i = 0; i < length; ++i) {
+            this.ary[`${i}`] = "";
+          }
+          this.indicator = -1;
+        }
+
+        get(index) {
+          if (index < 0 || index >= this.length)
+            return console.log("잘못된 인덱스입니다.");
+          else if (this.ary[index] == "") return console.log("빈 장소입니다.");
+          return this.ary[index];
+        }
+        indexOf(value) {
+          for (let i = 0; i < this.length; ++i) {
+            if (this.ary[i] == value) {
+              return i;
+            }
+          }
+          return console.log("그런 값은 없습니다.");
+        }
+        push(num) {
+          if (num == undefined) return console.log("값을 입력해주세요");
+          if (this.indicator++ > this.length - 2) {
+            this.indicator--;
+            console.log("StackOverFlow");
+            return;
+          }
+          this.ary[this.indicator] = num;
+        }
+        pop() {
+          if (this.indicator-- < 0) {
+            this.indicator++;
+            console.log("너무 많이 뺏어");
+            return;
+          }
+          let curItem = this.ary[this.indicator + 1];
+          return curItem;
+        }
+        print() {
+          if (this.indicator <= -1) return console.log("없어!");
+          let tempStr = "";
+          for (let i = 0; i <= this.indicator; ++i) {
+            if (this.ary[i] == undefined) break;
+            tempStr += `[${i}] : ${this.ary[i]}  `;
+          }
+          console.log(tempStr);
+        }
+      }
+
+      let myStack = new Stack(4);
+
+      class Queue {
+        constructor(length) {
+          this.ary = {};
+          this.length = length;
+          for (let i = 0; i < this.length; ++i) {
+            this.ary[`${i}`] = "";
+          }
+          this.indicator = -1;
+        }
+
+        get(index) {
+          if (index < 0 || index >= this.length)
+            return console.log("잘못된 인덱스입니다.");
+          else if (this.ary[index] == "") return console.log("빈 장소입니다.");
+          return this.ary[index];
+        }
+        indexOf(value) {
+          for (let i = 0; i < this.length; ++i) {
+            if (this.ary[i] == value) {
+              return i;
+            }
+          }
+          return console.log("그런 값은 없습니다.");
+        }
+        push(num) {
+          if (num == undefined) return console.log("값을 입력해주세요");
+          if (this.indicator++ > this.length - 2) {
+            this.indicator--;
+            console.log("QueueOverFlow");
+            return;
+          }
+          this.ary[this.indicator] = num;
+        }
+        shift() {
+          if (this.indicator-- < 0) {
+            this.indicator++;
+            console.log("너무 많이 뺏어");
+            return;
+          }
+          let curItem = this.ary[0];
+          this.ary[this.length - 1] = "";
+          for (let i = 0; i < this.length - 1; ++i) {
+            this.ary[`${i}`] = this.ary[`${i + 1}`];
+          }
+          return curItem;
+        }
+        print() {
+          if (this.indicator <= -1) return console.log("없어!");
+          let tempStr = "";
+          for (let i = 0; i <= this.indicator; ++i) {
+            if (this.ary[i] == undefined) break;
+            tempStr += `[${i}] : ${this.ary[i]}  `;
+          }
+          console.log(tempStr);
+        }
+      }
+
+      let myQueue = new Queue(3);
+    </script>
+  </body>
+</html>
