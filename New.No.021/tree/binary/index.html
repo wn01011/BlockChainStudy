@@ -1,0 +1,166 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary</title>
+  </head>
+  <body>
+    <script>
+      class BinaryNode {
+        constructor(data) {
+          this.data = data;
+          this.left = null;
+          this.right = null;
+        }
+      }
+
+      class BinarySearchTree {
+        // 이진 검색 트리
+        constructor() {
+          this.root = null;
+        }
+        insert(data) {
+          if (!this.root) {
+            this.root = new BinaryNode(data);
+            return;
+          }
+          let node = this.root;
+          while (true) {
+            if (node.data > data) {
+              if (node.left) {
+                node = node.left;
+              } else {
+                node.left = new BinaryNode(data);
+                return;
+              }
+            } else if (node.data < data) {
+              if (node.right) {
+                node = node.right;
+              } else {
+                node.right = new BinaryNode(data);
+                return;
+              }
+            } else return;
+          }
+        }
+
+        remove1(data, node = this.root) {
+          if (!this.root) return;
+          if (node.data > data) {
+            if (node.left) {
+              node.left = this.remove1(data, node.left);
+            }
+          } else if (node.data < data) {
+            if (node.right) {
+              node.right = this.remove1(data, node.right);
+            }
+          } else {
+            if (!node.left && !node.right) {
+              if (node == this.root) this.root = undefined;
+              return undefined;
+            } else if (!node.left) {
+              return node.right;
+            } else if (!node.right) {
+              return node.left;
+            } else {
+              let tempNode = node.right;
+              while (tempNode.left) {
+                temp = temp.left;
+              }
+              node.data = tempNode.data;
+              node.right = this.remove1(tempNode.data, node.right);
+            }
+          }
+          return node;
+        }
+
+        remove(data) {
+          if (!this.root) return;
+          let node = this.root;
+          let parent = null;
+          let isLeft = false;
+          while (true) {
+            if (node.data > data) {
+              if (node.left) {
+                parent = node;
+                isLeft = true;
+                node = node.left;
+              } else {
+                console.log("// 없어!");
+                return;
+              }
+            } else if (node.data < data) {
+              if (node.right) {
+                parent = node;
+                isLeft = false;
+                node = node.right;
+              } else {
+                console.log("// 없어!");
+                return;
+              }
+            } else {
+              break;
+            }
+          }
+          if (node == this.root) {
+            let rootLeft = this.root.left;
+            let tempLeft = node.left;
+            this.root = node.right;
+            while (tempLeft.left) {
+              tempLeft = tempLeft.left;
+            }
+            tempLeft.left = rootLeft;
+            return;
+          }
+          console.log(isLeft);
+          while (true) {
+            if (!node.right && !node.left) {
+              if (!parent) {
+                this.root = null;
+                return;
+              }
+            }
+            if (isLeft) {
+              if (!parent?.left) return;
+              parent.left = node.right;
+              let tempNode = node.right;
+              while (tempNode?.left) {
+                if (tempNode.left) tempNode = tempNode.left;
+              }
+              tempNode.left = node.left;
+              return;
+            } else {
+              if (!parent?.right) return;
+              parent.right = node.right;
+              let tempNode = node.right;
+              while (tempNode?.left) {
+                if (tempNode.left) tempNode = tempNode.left;
+              }
+              if (tempNode) tempNode.left = node.left;
+              return;
+            }
+          }
+        }
+      }
+
+      const myBinary = new BinarySearchTree();
+
+      myBinary.insert(8);
+      myBinary.insert(4);
+      myBinary.insert(12);
+      myBinary.insert(2);
+      myBinary.insert(6);
+      myBinary.insert(10);
+      myBinary.insert(14);
+      myBinary.insert(1);
+      myBinary.insert(3);
+      myBinary.insert(5);
+      myBinary.insert(7);
+      myBinary.insert(9);
+      myBinary.insert(11);
+      myBinary.insert(13);
+      myBinary.insert(15);
+    </script>
+  </body>
+</html>

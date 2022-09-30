@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tree</title>
+  </head>
+  <body>
+    <script>
+      class TreeNode {
+        constructor(data) {
+          this.data = data;
+          this.children = [];
+        }
+        insert(data, index) {
+          if (index === undefined) this.children.push(new TreeNode(data));
+          else if (index > -1) this.children[index].push(new TreeNode(data));
+        }
+        insertNode(node) {
+          this.children.push(node);
+        }
+      }
+    </script>
+  </body>
+</html>

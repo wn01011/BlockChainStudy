@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TreeNode</title>
+  </head>
+  <body>
+    <script>
+      class TreeNode {
+        constructor(data) {
+          this.data = data;
+          this.left = undefined;
+          this.right = undefined;
+        }
+        insert(node) {
+          if (!this.left) this.left = node;
+          else if (!this.right) this.right = node;
+          else return [this.left, this.right];
+          return [node];
+        }
+      }
+      class CompleteBinaryTree {
+        constructor() {
+          this.root = undefined;
+        }
+        insert(data) {
+          const tempNode = new TreeNode(data);
+          if (!this.root) this.root = tempNode;
+          else {
+            let tempArr = [this.root];
+            let isInsert = false;
+            let idx = 0;
+            while (!isInsert) {
+              const tempResult = tempArr[idx].insert(tempNode);
+              if (tempResult.length == 1) isInsert = true;
+              else {
+                tempArr = tempArr.concat(tempResult);
+                idx++;
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

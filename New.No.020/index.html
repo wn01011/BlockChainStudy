@@ -1,0 +1,77 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const listNode = {
+        data: undefined,
+        next: undefined,
+        insert(data) {
+          if (this.next) this.next.insert(data);
+          else
+            this.next = {
+              ...listNode,
+              data,
+            };
+        },
+      };
+
+      const listRoot = { ...listNode, data: 0 };
+      listRoot.insert(1);
+      listRoot.insert(2);
+      listRoot.insert(3);
+      listRoot.insert(4);
+      listRoot.insert(5);
+
+      const listArr = {
+        arr: [],
+        insert(data) {
+          this.arr.push(data);
+          return this.arr.length;
+        },
+        remove(data) {
+          let isDelete = false;
+          this.arr = this.arr.filter((item) => {
+            if (item != data || isDelete) {
+              return true;
+            } else {
+              isDelete = true;
+              return false;
+            }
+          });
+          return this.arr.length;
+        },
+        contains(data) {
+          return this.arr.contains(data);
+        },
+      };
+
+      SingleList.prototype.remove = function (data) {
+        if (!this.head) return;
+        if (this.head.data == data) {
+          const temp = this.head.next;
+          delete this.head;
+          this.head = temp;
+          this.size--;
+          return;
+        }
+        let curr = this.head;
+        while (curr !== this.tail) {
+          if (!curr.next) return;
+          if (curr.next.data === data) {
+            const temp = curr.next.next;
+            delete curr.next;
+            curr.next = temp;
+            this.size--;
+            return;
+          }
+          curr = curr.next;
+        }
+      };
+    </script>
+  </body>
+</html>

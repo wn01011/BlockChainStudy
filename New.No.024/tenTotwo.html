@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function RealTenToTwo(num) {
+        let ary = [];
+        function TenToTwo(num) {
+          let maxIdx = 0;
+          let tempExp = 1;
+          if (num == 1) return ary.push([0, 1]);
+          else if (num == 0) return;
+          while (tempExp <= num) {
+            tempExp *= 2;
+            maxIdx++;
+          }
+          maxIdx--;
+          let curNum = Math.pow(2, maxIdx);
+          ary.push([maxIdx, curNum]);
+          return TenToTwo(num - curNum);
+        }
+        TenToTwo(num);
+        let str = "";
+        for (let i = ary[0][0]; i >= 0; --i) {
+          let isContain = false;
+          ary.forEach((item) => {
+            if (item[0] == i) isContain = true;
+          });
+          if (isContain) str += "1";
+          else str += "0";
+        }
+        return str;
+      }
+      for (let i = 1; i <= 10; ++i) {
+        console.log(`${i} :`, RealTenToTwo(i));
+      }
+    </script>
+  </body>
+</html>

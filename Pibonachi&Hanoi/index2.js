@@ -18,3 +18,7 @@ function Hanoi2() {
   console.log(`걸린 총 횟수 : ${Hanoi(_ring)}`);
   Log(_ring, from, other, to);
 }
+
+function TrueHanoi(n, from = 1, other = 2, to = 3) {
+  console.log(from, other, to);
+}

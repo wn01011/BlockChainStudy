@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sort</title>
+  </head>
+  <body>
+    <script>
+      function swap(arr, idx1, idx2) {
+        const temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+      }
+      const myArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+
+      function bubbleSort(arr) {
+        const tempArr = [...arr]; // 원본을 훼손하지 않기 위해서 임시 배열을 사용한다.
+        const len = arr.length;
+        for (let j = 0; j < len; ++j) {
+          for (let i = 0; i < len - 1; ++i) {
+            if (tempArr[i] < tempArr[i + 1]) {
+              swap(tempArr, i, i + 1);
+            }
+          }
+        }
+
+        return tempArr;
+      }
+
+      function selectSort(arr) {
+        const tempArr = [...arr];
+        const len = tempArr.length;
+        for (let i = 0; i < len - 1; ++i) {
+          let minIdx = i;
+
+          for (let j = i + 1; j < len; ++j) {
+            if (tempArr[j] < tempArr[minIdx]) {
+              minIdx = j;
+            }
+          }
+          swap(tempArr, i, minIdx);
+        }
+        return tempArr;
+      }
+
+      function insertSort(arr) {
+        const tempArr = [...arr];
+
+        for (let i = 1; i < tempArr.length; ++i) {
+          for (let j = i - 1; j > -1; --j) {
+            if (tempArr[j + 1] < tempArr[j]) swap(tempArr, j, j + 1);
+          }
+        }
+      }
+      console.time("bubbleSort");
+      //   console.log(bubbleSort(myArr));
+      console.log(selectSort(myArr));
+      console.timeEnd("bubbleSort");
+    </script>
+  </body>
+</html>
