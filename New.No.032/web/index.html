@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="board">
+        <ul id="list">
+          <!-- List template -->
+          <!-- <li>
+            <div class="title">
+              <h3>adsfasdf</h3>
+              <img src="./Images/angle-up-solid.svg" alt="" />
+            </div>
+            <div class="text">
+              <p>asdfasdf</p>
+              <textarea>
+            </div>
+          </li> -->
+        </ul>
+        <ul id="page"></ul>
+      </div>
+      <div id="user-input-container">
+        <div id="menu-btn-box">
+          <img src="./Images/bars-solid.svg" id="menu-btn" alt="" />
+        </div>
+        <form id="board-add">
+          <label for="board-title"
+            >글 제목 :
+            <input
+              type="text"
+              id="board-title"
+              placeholder="글 제목을 입력하세요"
+              value=""
+          /></label>
+          <label for="board-text">
+            <textarea
+              name=""
+              cols="30"
+              rows="10"
+              id="board-text"
+              placeholder="글 내용을 입력하세요"
+            ></textarea>
+          </label>
+          <button id="upload">업로드</button>
+        </form>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

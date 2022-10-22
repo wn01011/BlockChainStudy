@@ -1,0 +1,197 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+}
+#board {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  padding: 20px 50px;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: beige;
+}
+
+#list li {
+  padding: 0;
+  margin: 0;
+  border: 1px solid lightgray;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#list li div * {
+  pointer-events: none;
+}
+
+#list li .title {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: lightgray;
+}
+#list li .title img {
+  width: 30px;
+  transition: transform 0.2s ease-in;
+}
+#list li .title img.imgRotate {
+  /* transform: scaleY(-1); */
+  transform: RotateZ(180deg);
+}
+#list li .text {
+  display: flex;
+  width: 100%;
+  padding: 10px 30px 20px;
+  margin: 0;
+  background-color: beige;
+  transition: all 0.1s ease-in;
+}
+#list li .text p {
+  flex: 1;
+}
+#list li .text textarea {
+  flex: 1;
+}
+#list li .text textarea {
+  display: none;
+  width: 100%;
+  height: 100px;
+  resize: none;
+  pointer-events: auto;
+}
+#list li .text.edit p {
+  display: none;
+}
+#list li .text.edit textarea {
+  display: block;
+}
+#list li .text.textOff {
+  opacity: 0;
+  height: 0%;
+  padding: 0;
+  scale: 100% 0%;
+}
+#list li .title h3 {
+  flex: 1;
+}
+#user-input-container {
+  width: 50px;
+  padding: 10px;
+  background-color: lightgray;
+  height: 100%;
+  transition: width 0.5s ease-in;
+}
+#user-input-container.on {
+  width: 300px;
+}
+
+#board-add {
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+#user-input-container.on #board-add {
+  opacity: 1;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#board-title {
+  padding: 5px;
+}
+
+#board-text {
+  width: 100%;
+  padding: 5px;
+}
+textarea {
+  resize: none;
+  width: 100%;
+}
+#menu-btn-box {
+  width: 30px;
+  margin-bottom: 20px;
+}
+
+#menu-btn {
+  width: 100%;
+}
+
+#page {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 10px;
+  padding: 10px 0px;
+  background-color: lightslategray;
+}
+#page li {
+  text-align: center;
+  width: 30px;
+  background-color: lightgray;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#page li.now {
+  background-color: black;
+  color: white;
+}
+
+#list li .text .btnBox {
+  display: none;
+}
+#list li .text .btnBox img {
+  width: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+#list li .text .btnBox {
+  display: flex;
+  width: 50px;
+  margin-right: 10px;
+}
+#list li .text.textOff .btnBox {
+  display: none;
+}
+
+#list li .text.textOff .cancel {
+  display: none;
+}
+
+#list li .text.textOff .delete {
+  display: none;
+}
+#list li .text.edit .cancel {
+  display: block;
+}

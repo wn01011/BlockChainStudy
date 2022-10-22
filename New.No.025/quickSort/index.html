@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickSort</title>
+  </head>
+  <body>
+    <script>
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+      const quickSortHelper = (arr, left, right) => {
+        const pivotIdx = left++;
+        while (left <= right) {
+          while (arr[pivotIdx] > arr[left]) left++;
+          while (arr[pivotIdx] < arr[right]) right--;
+          if (left <= right) {
+            const temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+          }
+        }
+        const temp = arr[pivotIdx];
+        arr[pivotIdx] = arr[right];
+        arr[right] = temp;
+        return right;
+      };
+      function quickSort(arr, left, right) {
+        let idx = quickSortHelper(arr, left, right);
+        if (left < idx - 1) quickSort(arr, left, idx - 1);
+        if (idx + 1 < right) quickSort(arr, idx + 1, right);
+        return arr;
+      }
+      console.log(quickSort(dataArr, 0, dataArr.length - 1));
+    </script>
+  </body>
+</html>

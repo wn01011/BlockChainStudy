@@ -1,7 +1,7 @@
 console.log("hello, World");
 
 // npm => node package manager
-// Node.js 에서 사용하는 라이버러리 관리자
+// Node.js 에서 사용하는 라이브러리 관리자
 // yarn(React)도 사용가능
 
 // npm install 라이브러리 명 / npm i 라이브러리 명

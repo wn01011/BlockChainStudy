@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restful API</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>Restful API ??</h1>
+    <p>API : application Server : &lt;&lt; 데이터를 주고받는 서버<br /></p>
+    <p>데이터는 보통 json 형식으로 주고 받는다.</p>
+    <p>또는 XML형식인데 궁금하면 찾아봐라</p>
+    <button onclick="">테스트</button>
+    <form action="/api/user" method="post">
+      <label for="name">이름 : </label>
+      <input type="text" name="name" id="name" />
+    </form>
+    <p>REST API</p>
+    <p>
+      REST API Web 통신에서 클라이언트와 서버가 데이터를 주고받는 방식 중
+      하나이다.
+    </p>
+    <p>가장 대표적인 방식이다.</p>
+    <p>Representational State Transfer</p>
+    <p>GET : 데이터를 받을 때 사용, 단순 데이터 요청, 파일등등</p>
+    <p>queryString으로 주소에 출력되는 문자열</p>
+    <p>
+      POST : 데이터를 보낼 때 사용, 저장할 때, 로그인 할 때, 회원 가입할 때,
+      비밀스러운 정보를 요청할 때
+    </p>
+    <p>body에 포함되고 숨겨져서 서버에 데이터를 보낸다.</p>
+    <p>PUT : 데이터를 수정할 때 사용, 비밀번호 변경, 게시글이 수정</p>
+    <p>DELETE : 데이터를 삭제할 때 사용</p>
+    <p>
+      OPTIONS : 요청을 하기 전에 통신 옵션을 설명하기 위해 사용, 로그인을 했다
+      다른 페이지가 출력된다. 옵션을 통해서 로그인정보를 확인하고 이후에
+      GET처리하여 알맞은 데이터를 응답한다.
+    </p>
+    <p>
+      - CORS : 크로스 오리진(Cross-Origin Resource Sharing), 클라이언트가 하나의
+      서버에서 HTML 파일 등등을 받고 다른 서버에서 미디어(그림, 영상 등등) 받을
+      때 두 주소가 다르면 원칙적으로 받을 수 없게 되어있다. 즉, 불펌이
+      불가능하다. 이걸 허용할 수 있게 해주는 기술이 CORS이다. 위에서 말하는
+      주소는 포트를 포함한다.
+    </p>
+    <p>PATCH : 데이터를 일부만 수정할 때 사용</p>
+  </body>
+</html>

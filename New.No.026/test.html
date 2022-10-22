@@ -1,0 +1,17 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열자르기</title>
+  </head>
+  <body>
+    <script>
+      function solution(numbers, num1, num2) {
+        numbers = numbers.slice(num1, num2 + 1);
+        return numbers;
+      }
+      console.log(solution([1, 2, 3, 4, 5], 2, 4));
+    </script>
+  </body>
+</html>
