@@ -1,0 +1,18 @@
+#loginBtn {
+  display: inline-block;
+}
+#logoutBtn {
+  display: none;
+}
+#loginBtn.login {
+  display: none;
+}
+#logoutBtn.login {
+  display: inline-block;
+}
+#info {
+  display: none;
+}
+#info.login {
+  display: block;
+}
