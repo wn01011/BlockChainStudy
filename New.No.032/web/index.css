@@ -195,3 +195,43 @@ textarea {
 #list li .text.edit .cancel {
   display: block;
 }
+
+#loginBtn {
+  display: inline-block;
+}
+#logoutBtn {
+  display: none;
+}
+#loginBtn.login {
+  display: none;
+}
+#logoutBtn.login {
+  display: block;
+}
+#info {
+  display: block;
+}
+#info.login {
+  display: block;
+}
+#loginText,
+#passwordText {
+  padding-left: 10px;
+  display: block;
+}
+#loginText.login,
+#passwordText.login {
+  display: none;
+}
+#btnBox {
+  display: flex;
+  justify-content: end;
+  column-gap: 30px;
+  margin-right: 60px;
+  flex: 1;
+}
+#loginBtn,
+#logoutBtn,
+#signupBtn {
+  width: 100px;
+}

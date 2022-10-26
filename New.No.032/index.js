@@ -14,6 +14,9 @@ const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
 
+// require("./api/cryptoTest.js");
+// require("./api/jwt.js");
+
 const boardList = [];
 fs.readFile("./test/test.json", "utf-8", function (err, data) {
   if (err) {
@@ -34,6 +37,8 @@ fs.readFile("./test/user.json", "utf-8", function (err, data) {
 });
 
 // const routes = require("./routes/index.js");
+
+const userApi = require("./routes/user.js");
 
 const app = express();
 dotenv.config();
@@ -79,6 +84,8 @@ app.post("/api/board/update", (req, res) => {
   res.send({ status: 200, data: "업데이트 테스트" });
 });
 
+app.use("/api/user", userApi);
+
 app.get("/api/board", (req, res) => {
   res.send({
     status: 200,
@@ -90,6 +97,8 @@ app.get("/api/board", (req, res) => {
   });
 });
 
+app.set("port", process.env.PORT || 8080);
+
 app.listen(8080, () => {
-  console.log("http://localhost:8080");
+  console.log("http://localhost:" + app.get("port"));
 });

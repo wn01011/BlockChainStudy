@@ -25,6 +25,7 @@ document.getElementById("board-add").onsubmit = async function (e) {
       text: e.target["board-text"].value,
       uptime: Date.now(),
     });
+
     if (data.data.status == 200) {
       e.target["board-title"].value = e.target["board-text"].value = "";
       getList();
@@ -100,7 +101,6 @@ async function getList() {
             num: index,
           });
           getList();
-          console.log(data.data);
         } catch (err) {
           console.error(err);
         }
@@ -119,7 +119,6 @@ async function getList() {
             });
             tempText.classList.toggle("edit");
             getList();
-            console.log(data.data);
           } catch (err) {
             console.error(err);
           }
@@ -153,6 +152,105 @@ async function getList() {
 }
 getList();
 
-// axios.post("/api/board/add").then((data) => {
-//   console.log(data);
-// });
+// 회원가입시작
+let users = [];
+let curUser = { id: "", password: "" };
+function getUsers() {
+  axios.get("/api/user").then((data) => {
+    users = [];
+    data.data.forEach((item) => {
+      users.push(item);
+    });
+    console.log(users);
+  });
+}
+getUsers();
+
+const loginText = document.getElementById("loginText");
+const passwordText = document.getElementById("passwordText");
+
+function checkUserInfo() {
+  getUsers();
+  for (let i = 0; i < users.length; ++i) {
+    if (
+      users[i]?.id === loginText.value
+        ? users[i]?.password === passwordText.value
+          ? true
+          : false
+        : false
+    )
+      return true;
+  }
+  return false;
+}
+
+function checkSameId(id) {
+  getUsers();
+  if (users)
+    for (let i = 0; i < users.length; ++i) {
+      if (users[i].id === id) {
+        return true;
+      }
+    }
+  return false;
+}
+
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+const info = document.getElementById("info");
+loginBtn.onclick = function (e) {
+  if (checkUserInfo()) {
+    curUser.id = loginText.value;
+    curUser.password = passwordText.value;
+    loginBtn.classList.toggle("login");
+    logoutBtn.classList.toggle("login");
+    loginText.classList.toggle("login");
+    passwordText.classList.toggle("login");
+    info.classList.toggle("login");
+    info.innerText = `안녕하세요 ${curUser.id}님`;
+  } else {
+    loginText.focus();
+    info.innerText = `잘못된 입력입니다.`;
+  }
+};
+logoutBtn.onclick = function (e) {
+  loginText.value = "";
+  passwordText.value = "";
+  curUser.id = "";
+  curUser.password = "";
+  loginBtn.classList.toggle("login");
+  logoutBtn.classList.toggle("login");
+  loginText.classList.toggle("login");
+  passwordText.classList.toggle("login");
+  info.classList.toggle("login");
+  info.innerText = `로그아웃 완료`;
+};
+
+const signupBtn = document.getElementById("signupBtn");
+signupBtn.onclick = function (e) {
+  if (
+    loginText.value &&
+    passwordText.value &&
+    curUser.id == "" &&
+    curUser.password == ""
+  ) {
+    if (!checkSameId(loginText.value)) {
+      axios
+        .post("/api/user", {
+          id: loginText.value,
+          password: passwordText.value,
+        })
+        .then((data) => {
+          info.innerText = `회원가입이 완료되었습니다.`;
+          getUsers();
+        });
+      passwordText.value = "";
+      loginText.value = "";
+    } else {
+      loginText.focus();
+      info.innerText = `중복된 아이디가 있습니다.`;
+    }
+  } else {
+    info.innerText = `회원 가입은 로그아웃을 하시고 아이디와 비밀번호에 값을 입력해야 가능합니다.`;
+  }
+};

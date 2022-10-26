@@ -4,22 +4,36 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
+const fs = require("fs");
 
-dotenv.config();
+const userList = [];
+
+fs.readFile("./data/user.json", "utf-8", function (err, data) {
+  if (err) {
+    console.error(err.message);
+  } else {
+    if (data) {
+      JSON.parse(data).forEach((item) => {
+        userList.push(item);
+      });
+    }
+  }
+});
 
 const userApi = require("./routes/user.js");
+const boardApi = require("./routes/board.js");
 
 const app = express();
+dotenv.config();
 
-app.set("port", 8080);
-app.use(express.json());
-app.use("/", express.static(path.join(__dirname, "web")));
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);
 });
-app.use(express.urlencoded({ extended: false }));
+app.use("/", express.static(path.join(__dirname, "web")));
+app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     resave: false,
@@ -32,13 +46,11 @@ app.use(
     name: "session",
   })
 );
-app.get("/api/test", (req, res) => {
-  console.log(req.query);
-  res.send(req.query);
-});
 
 app.use("/api/user", userApi);
+app.use("/api/board", boardApi);
 
+app.set("port", process.env.PORT || 8080);
 app.listen(app.get("port"), () => {
-  console.log("안녕하세영");
+  console.log("http://localhost:" + app.get("port"));
 });

@@ -1,0 +1,20 @@
+textarea,
+#upload {
+  display: none;
+}
+textarea.on,
+#upload.on {
+  display: block;
+}
+#id,
+#pw,
+#signInBtn,
+#signOutBtn {
+  display: none;
+}
+#id.on,
+#pw.on,
+#signInBtn.on,
+#signOutBtn.on {
+  display: block;
+}

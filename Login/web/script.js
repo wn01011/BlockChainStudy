@@ -94,3 +94,14 @@ signupBtn.onclick = function (e) {
     }
   }
 };
+
+axios
+  .get("/api/test", {
+    params: { id: "asfd" },
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    if (err) console.error(err);
+  });

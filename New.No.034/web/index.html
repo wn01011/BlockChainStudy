@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간만에 노드 없이</title>
+    <!-- <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script> -->
+    <script
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
+      integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="naverIdLogin"></div>
+    <button id="requestToken">토큰 요청</button>
+    <button id="kakaoLogin">카카오 로그인</button>
+    <button id="kakaoLogout">카카오 로그아웃</button>
+    <button id="tokenInfo">토큰 인포</button>
+    <p>
+      API : Application Programing Interface<br />
+      간단하게 생각하면 외부 서비스를 사용한다.<br />
+      라이브러리는 외부에서 기능하는 코드를 가져와서 사용한다.<br />
+      우리쪽에 저장된 데이터, 코드 등은 없지만 외부에서 데이터를 받아서
+      사용한다.
+    </p>
+    <script>
+      //   console.log(naver);
+      //   const naverLogin = new naver.LoginWithNaverId({
+      //     clientId: "SCAoVub8T9U1YEtC89qD",
+      //     callbackUrl: "http://127.0.0.1:5502/New.No.034/index.html",
+      //     isPopup: false, // 팝업창으로 로그인 띄울 것인가
+      //     loginButton: { color: "green", type: 3, height: 40 },
+      //   });
+      //   naverLogin.init();
+
+      //   naverLogin.getLoginStatus((status) => {
+      //     if (status) {
+      //       console.log(naverLogin.user);
+      //     }
+      //   });
+      //   let testPopUp;
+      //   function openPopUp() {
+      //     testPopUp = window.open(
+      //       "https://nid.naver.com/nidlogin.logout",
+      //       "_blank",
+      //       "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1"
+      //     );
+      //   }
+      //   function closePopUp() {
+      //     testPopUp.close();
+      //   }
+      //   document.getElementById("naverLogout").onclick = () => {
+      //     openPopUp();
+      //     setTimeout(function () {
+      //       closePopUp();
+      //     }, 1000);
+      //   };
+      //   let naver_id_login = new naver.LoginWithNaverId({
+      //     clientId: "SCAoVub8T9U1YEtC89qD",
+      //     callbackUrl: "http://127.0.0.1:5502/New.No.034/index.html",
+      //     isPopup: false,
+      //     callbackHandle: true,
+      //   });
+
+      Kakao.init("bd44d2e97574e996681bb31eb9e08e68");
+      console.log(Kakao.isInitialized());
+
+      const kakaoLoginBtn = document.getElementById("kakaoLogin");
+      kakaoLoginBtn.onclick = () => {
+        kakaoLogin();
+      };
+
+      const requestToken = document.getElementById("requestToken");
+
+      requestToken.onclick = () => {
+        let params = new URL(document.location.toString()).searchParams;
+        let code = params.get("code");
+        console.log(code);
+        let grant_type = "authorization_code";
+        let client_id = "a5f54cca67eb27a4e9b2833b85131f38";
+        axios
+          .post(
+            `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a5f54cca67eb27a4e9b2833b85131f38&redirect_uri=http://localhost:8080/oauth/kakao/callback`,
+            {
+              headers: {
+                "Content-type":
+                  "application/x-www-form-urlencoded;charset=utf-8",
+              },
+            }
+          )
+          .then((dataq) => {
+            console.log(data);
+            // 토큰을 활용한 로직을 적어주면된다.
+          })
+          .catch((e) => {
+            console.log(e);
+            res.send(e);
+          });
+      };
+
+      function kakaoLogin() {
+        Kakao.Auth.authorize({
+          redirectUri: "http://127.0.0.1:8080/oauth/kakao/callback",
+        }).then((data) => {
+          console.log(data);
+        });
+      }
+      const kakaoInfoBtn = document.getElementById("tokenInfo");
+      kakaoInfoBtn.onclick = () => {
+        axios.get("/oauth/kakao/callback/return").then((data) => {
+          console.log(data);
+        });
+      };
+      // axios.get("http://127.0.0.1:8080/oauth/kakao/callback").then((data) => {
+      //   console.log(data);
+      // });
+    </script>
+  </body>
+</html>

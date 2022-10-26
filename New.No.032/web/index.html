@@ -8,6 +8,39 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <div>
+      <div
+        style="
+          width: 100%;
+          height: 50px;
+          background-color: beige;
+          display: flex;
+          justify-content: left;
+          padding-left: 30px;
+          align-items: center;
+        "
+      >
+        <div id="info">Easy</div>
+      </div>
+      <div
+        style="
+          width: 100%;
+          height: 50px;
+          background-color: lightslategray;
+          display: flex;
+          padding: 6px;
+          column-gap: 4px;
+        "
+      >
+        <input type="text" id="loginText" placeholder="아이디 입력" />
+        <input type="text" id="passwordText" placeholder="패스워드 입력" />
+        <div id="btnBox" style="display: flex">
+          <button id="loginBtn">로그인</button
+          ><button id="logoutBtn">로그아웃</button
+          ><button id="signupBtn">회원가입</button>
+        </div>
+      </div>
+    </div>
     <div id="root">
       <div id="board">
         <ul id="list">

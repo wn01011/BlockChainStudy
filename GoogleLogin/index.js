@@ -1,25 +1,20 @@
 const express = require("express");
 const session = require("express-session");
 const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
-
-dotenv.config();
-
-const userApi = require("./routes/user.js");
+const cookieParser = require("cookie-parser");
 
 const app = express();
-
-app.set("port", 8080);
-app.use(express.json());
-app.use("/", express.static(path.join(__dirname, "web")));
+dotenv.config();
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);
 });
-app.use(express.urlencoded({ extended: false }));
+app.use("/", express.static(path.join(__dirname, "web")));
+app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     resave: false,
@@ -32,13 +27,8 @@ app.use(
     name: "session",
   })
 );
-app.get("/api/test", (req, res) => {
-  console.log(req.query);
-  res.send(req.query);
-});
 
-app.use("/api/user", userApi);
-
+app.set("port", process.env.PORT || 8080);
 app.listen(app.get("port"), () => {
-  console.log("안녕하세영");
+  console.log("서버열렸땃");
 });
