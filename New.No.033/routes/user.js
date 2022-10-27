@@ -2,11 +2,12 @@ const { Router } = require("express");
 const fs = require("fs");
 const crypto = require("crypto-js");
 const jwt = require("jsonwebtoken");
+const db = require("../models/index.js");
 
 ////////////////////////////////// jwt 생성
 
 function createJwt(name, key) {
-  const expireTime = "10";
+  const expireTime = "20";
   const tempJwt = jwt.sign({ name: `${name}` }, key, {
     algorithm: "HS256",
     expiresIn: `${expireTime}s`,
@@ -18,13 +19,7 @@ function createJwt(name, key) {
 }
 
 //////////////////////////////////
-
-const users = [
-  {
-    id: "a",
-    pw: "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-  },
-];
+const users = [];
 
 fs.readFile("./data/user.json", "utf-8", (err, data) => {
   if (err) console.error(err);
@@ -34,27 +29,20 @@ fs.readFile("./data/user.json", "utf-8", (err, data) => {
       data.forEach((item) => {
         users.push(item);
       });
+      users.forEach((item) => {
+        db.userdb.UserTable.create({ id: item.id, pw: item.pw });
+      });
     }
   }
 });
 
 const router = Router();
 // "/api/user"
-router
-  .route("/")
-  //   .get((req, res) => {
-  //     let curAry = createJwt("myKey");
-  //     console.log(curAry[0], curAry[1]);
-  //     res.cookie("cookie_name", `{id:${req.query.id},pw:${req.query.pw}}`, {
-  //       expires: new Date(Date.now() + 10 * 60 * 1000),
-  //     });
-  //     res.send(req.query);
-  //   })
-  .post((req, res) => {
-    users.push({ id: req.body.id, password: req.body.password });
-    fs.writeFileSync("./data/user.json", `${JSON.stringify([...users])}`);
-    res.end();
-  });
+router.route("/").post((req, res) => {
+  users.push({ id: req.body.id, password: req.body.password });
+  fs.writeFileSync("./data/user.json", `${JSON.stringify([...users])}`);
+  res.end();
+});
 
 function checkUserLogin(id, pw) {
   for (let i = 0; i < users.length; ++i) {
@@ -103,6 +91,7 @@ router.route("/signup").get((req, res) => {
     const curPw = crypto.SHA256(`${req.query.pw}`).toString();
     const curData = { id: req.query.id, pw: curPw };
     users.push(curData);
+    fs.writeFileSync("data/user.json", `${JSON.stringify(users)}`);
     res.send({ data: users });
   } else {
     res.send({ data: "못만들어 임마" });
