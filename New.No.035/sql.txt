@@ -79,3 +79,16 @@ INSERT
 - VALUES('0') : 어떤 값들이냐
 
 INSERT INTO `testing`.`new_table` SET(`idx` = '0', `name` = 'abcd', `password` = 'efgh', `id` = '1111', `create_at` = '2022-10-22');
+
+- `` << 객체(컬럼명)
+- '' << 고유값(스트링이나 숫자 등등 데이터)
+
+UPDATE
+-데이터를 수정한다.
+
+UPDATE `testing`.`new_table` SET id = 'kjk' WHERE idx = 2;
+
+DELETE
+-데이터를 삭제한다.
+
+DELETE FROM `testing`.`new_table` WHERE idx = 3;

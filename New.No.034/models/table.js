@@ -7,15 +7,15 @@ module.exports = class Table extends Sequelize.Model {
       {
         idx: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
         name: {
-          type: Sequelize.STRING(45), // VARCHAR
+          type: Sequelize.STRING(256), // VARCHAR
           allowNull: true,
         },
         id: {
-          type: Sequelize.STRING(45),
+          type: Sequelize.STRING(256),
           allowNull: true,
         },
         pw: {
-          type: Sequelize.STRING(45),
+          type: Sequelize.STRING(256),
           allowNull: true,
         },
       },

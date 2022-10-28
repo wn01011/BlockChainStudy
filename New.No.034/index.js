@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
 
+const db = require("./models/index.js");
+
 const app = express();
 dotenv.config();
 
@@ -54,6 +56,15 @@ app.post("https://kauth.kakao.com/oauth/token", (req, res) => {
   console.log(req.body);
   res.send(req.body.data);
 });
+
+db.sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log(`db connected`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.listen(app.get("port"), () => {
   console.log("http://localhost:" + app.get("port"));
