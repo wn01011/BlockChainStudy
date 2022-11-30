@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import BtnComp from "./components/BtnComp";
+import BtnRow from "./components/BtnRow";
 // import ClassComp from "./components/ClassComp";
 
 // function App() {
@@ -98,7 +99,6 @@ class App extends React.Component {
             }.bind(this)}
           ></BtnComp>
         </div>
-
         <div className="row">
           <BtnComp item="1" onClick={this.selNum.bind(this)}></BtnComp>
           <BtnComp item="2" onClick={this.selNum.bind(this)}></BtnComp>

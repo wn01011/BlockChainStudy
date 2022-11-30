@@ -9,9 +9,9 @@ export default class BtnComp extends React.Component {
     return (
       <div
         className="num-pad"
-        onClick={() => {
+        onClick={function (e) {
           this.props.onClick(+this.props.item);
-        }}
+        }.bind(this)}
       >
         {this.props.item}
       </div>

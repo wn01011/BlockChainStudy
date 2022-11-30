@@ -1,0 +1,33 @@
+body ul {
+  box-sizing: border-box;
+  margin: auto;
+  width: 50%;
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  margin-bottom: 50px;
+}
+body ul > li {
+  padding: 5px 20px;
+  width: fit-content;
+  margin: 0;
+  border: black solid 1px;
+}
+ul > li:nth-child(2n - 1) {
+  background-color: lightblue;
+}
+ul > li:nth-child(2n) {
+  background-color: lightgreen;
+}
+ul > li:hover {
+  background-color: lightcoral;
+}
+li > button {
+  margin-left: 50px;
+}
