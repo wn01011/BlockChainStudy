@@ -2,11 +2,15 @@ import { useState } from "react";
 import styled from "styled-components";
 import store from "../../modules/store";
 import dayjs from "dayjs";
+import "dayjs/locale/ko";
 
 const ListComponent = ({ onClick, userName, remove }) => {
   const [textInput, setTextInput] = useState("");
   const [titleInput, setTitleInput] = useState("");
   const [_, render] = useState(true);
+
+  dayjs.locale("ko");
+
   return userName ? (
     <ListBox>
       <input
@@ -47,12 +51,17 @@ const ListComponent = ({ onClick, userName, remove }) => {
       </button>
       {store.getState().list?.map((item, index) => (
         <div key={`listBox-${index}`} style={{ display: "flex" }}>
-          <div key={`list-${index}`}>
+          <div
+            key={`list-${index}`}
+            style={{ display: "flex", columnGap: "50px" }}
+          >
             <span>userId : {item.userId}</span> |{" "}
             <span>title : {item.title}</span>
             {" | "}
             <span>context : {item.context}</span> |{" "}
-            <span>time : {new dayjs(item.time).format("YY/MM/DD HH:mm")}</span>{" "}
+            <span>
+              time : {new dayjs(item.time).format("YY-MM-DD dddd HH:mm")}
+            </span>{" "}
           </div>
           <button
             onClick={() => {
