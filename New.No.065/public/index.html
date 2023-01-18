@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCP 페이지</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="box">서버를 만들어서 페이지를 띄워보자</div>
+    <a href="/board">게시판</a>
+    <script src="./board.js"></script>
+  </body>
+</html>
+
+Input : [["wooyemawooye", "mayaa", "ymaeaya"]] Output : 1 "aya", "ye", "woo",
+"ma" babbling.forEach((item, index) => { const curWord = item.split(""); let
+canPronounce = false; for(let i=0;i < curWord.length; ++i) { switch(curWord[i])
+{ case "a": { if(curWord[i + 1] == "y" && curWord[i + 2] == "a") canPronounce =
+true; else if(curWord[i - 1] == "y" && curWord[i - 2] == "a") canPronounce =
+true; else if(curWord[i - 1] == "m") canPronounce = true; else { canPronounce =
+false; console.log(index,i); return; } break; } case "y": { if(curWord[i - 1] ==
+"a" && curWord[i + 1] == "a") canPronounce = true; else if(curWord[i + 1] ==
+"e") canPronounce = true; else { canPronounce = false; console.log(index,i);
+return; } break; } case "w": { if(curWord[i + 1] == "o" && curWord[i + 2] ==
+"o") canPronounce = true; else { canPronounce = false; console.log(index,i);
+return; } break; } case "m": { if(curWord[i + 1] == "a") canPronounce = true;
+else { canPronounce = false; console.log(index,i); return; } break; } case "e":
+{ if(curWord[i - 1] == "y") canPronounce = true; else { canPronounce = false;
+console.log(index,i); return; } break; } case "o": { if(curWord[i + 1] == "o" &&
+curWord[i - 1] == "w") canPronounce = true; else if(curWord[i - 2] == "w" &&
+curWord[i - 1] == "o") canPronounce = true; else { canPronounce = false;
+console.log(index,i); return; } break; } default : canPronounce = false; return;
+} } if(canPronounce) answer++; })
